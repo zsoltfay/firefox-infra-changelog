@@ -1,2026 +1,242 @@
 [
   {
     "sha": "871bca68b1802d6efe45ee17377fc1a3258d47fd",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1Ojg3MWJjYTY4YjE4MDJkNmVmZTQ1ZWUxNzM3N2ZjMWEzMjU4ZDQ3ZmQ=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-08-14T20:35:52Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-08-14T20:35:52Z"
-      },
-      "message": "Merge pull request #16 from Akhliskun/riman_dev\n\nConvert the timestamp from UNIX format into human readable date format.",
-      "tree": {
-        "sha": "f67ba3ff329c43885b89083d8e55ec233526496d",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/f67ba3ff329c43885b89083d8e55ec233526496d"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/871bca68b1802d6efe45ee17377fc1a3258d47fd",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbcz0oCRBK7hj4Ov3rIwAAdHIIAG7/mVfPInSURkQqaLg1zT34\nXsyEzOPaSOBasHnYYqorfCYcVSz/JCc5W8tyWY15dGaSp1gzZ+D7iq9HNsGKr5Of\n1sB+djXpOiq3I1yywienKiZtIjwBvqspmH3/YZD0xihJVJCJRRwfJmn9hMwN1/Zg\nNol5O/DMaKphoDsXfiw8kPch2ONIZVX9H1NmvRuwSP7QJ+pS/bohefXTN54Dx7yP\nhGx0898lMq6/layHmTKURLdoqGY+ahf+pUAjYCHSNYBlmNYfFVrQ22BIuwulNgeV\nHuZ/jChXohlZpc4XKbDbzhOx/8iy4mRZpPKQWKzGxIVZ7tbaTOS5mOn8lneoPL0=\n=zyrY\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree f67ba3ff329c43885b89083d8e55ec233526496d\nparent 7cc3794214ec6584386e9d2d99bbd91285a7d6c2\nparent 3942fbb6ece6002f2ca4e117bd5653a7cfec07e1\nauthor Danut Labici <labicidanut@gmail.com> 1534278952 +0300\ncommitter GitHub <noreply@github.com> 1534278952 +0300\n\nMerge pull request #16 from Akhliskun/riman_dev\n\nConvert the timestamp from UNIX format into human readable date format."
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/871bca68b1802d6efe45ee17377fc1a3258d47fd",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/871bca68b1802d6efe45ee17377fc1a3258d47fd",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/871bca68b1802d6efe45ee17377fc1a3258d47fd/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "7cc3794214ec6584386e9d2d99bbd91285a7d6c2",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/7cc3794214ec6584386e9d2d99bbd91285a7d6c2",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/7cc3794214ec6584386e9d2d99bbd91285a7d6c2"
-      },
-      {
-        "sha": "3942fbb6ece6002f2ca4e117bd5653a7cfec07e1",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/3942fbb6ece6002f2ca4e117bd5653a7cfec07e1",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/3942fbb6ece6002f2ca4e117bd5653a7cfec07e1"
-      }
-    ]
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-08-14T20:35:52Z"
+    }
   },
   {
     "sha": "3942fbb6ece6002f2ca4e117bd5653a7cfec07e1",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjM5NDJmYmI2ZWNlNjAwMmYyY2E0ZTExN2JkNTY1M2E3Y2ZlYzA3ZTE=",
-    "commit": {
-      "author": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-14T15:48:24Z"
-      },
-      "committer": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-14T15:48:24Z"
-      },
-      "message": "Fix the time-date type issue.\nFix the commit_massage issue from json file.\nAdd code into md_changelog.py to pull the dates and stored into changelog.md file as a table.",
-      "tree": {
-        "sha": "f67ba3ff329c43885b89083d8e55ec233526496d",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/f67ba3ff329c43885b89083d8e55ec233526496d"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/3942fbb6ece6002f2ca4e117bd5653a7cfec07e1",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/3942fbb6ece6002f2ca4e117bd5653a7cfec07e1",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/3942fbb6ece6002f2ca4e117bd5653a7cfec07e1",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/3942fbb6ece6002f2ca4e117bd5653a7cfec07e1/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "4bb4e5c9ffe60e9ace1f25f30c1c2c8bf40ddd0f",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/4bb4e5c9ffe60e9ace1f25f30c1c2c8bf40ddd0f",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/4bb4e5c9ffe60e9ace1f25f30c1c2c8bf40ddd0f"
-      }
-    ]
+    "commit_info": {
+      "name": "radu.iman",
+      "email": "radu.iman@p6198.svdomain1.softvision.ro",
+      "date": "2018-08-14T15:48:24Z"
+    }
   },
   {
     "sha": "4bb4e5c9ffe60e9ace1f25f30c1c2c8bf40ddd0f",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjRiYjRlNWM5ZmZlNjBlOWFjZTFmMjVmMzBjMWMyYzhiZjQwZGRkMGY=",
-    "commit": {
-      "author": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-14T06:49:25Z"
-      },
-      "committer": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-14T06:49:25Z"
-      },
-      "message": "Convert the timestamp from UNIX format into human readable date format.",
-      "tree": {
-        "sha": "6202c92813c37f943ce4738e1729038b06d1820d",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/6202c92813c37f943ce4738e1729038b06d1820d"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/4bb4e5c9ffe60e9ace1f25f30c1c2c8bf40ddd0f",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/4bb4e5c9ffe60e9ace1f25f30c1c2c8bf40ddd0f",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/4bb4e5c9ffe60e9ace1f25f30c1c2c8bf40ddd0f",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/4bb4e5c9ffe60e9ace1f25f30c1c2c8bf40ddd0f/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "66fb9963967a53f18759243fc4d3cada5d63c9c9",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/66fb9963967a53f18759243fc4d3cada5d63c9c9",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/66fb9963967a53f18759243fc4d3cada5d63c9c9"
-      }
-    ]
+    "commit_info": {
+      "name": "radu.iman",
+      "email": "radu.iman@p6198.svdomain1.softvision.ro",
+      "date": "2018-08-14T06:49:25Z"
+    }
   },
   {
     "sha": "7cc3794214ec6584386e9d2d99bbd91285a7d6c2",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjdjYzM3OTQyMTRlYzY1ODQzODZlOWQyZDk5YmJkOTEyODVhN2Q2YzI=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-08-13T20:22:07Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-08-13T20:22:07Z"
-      },
-      "message": "Merge pull request #12 from Akhliskun/riman_dev\n\nThe finall version of the git_api.py to pull the changelog from Mozil\u2026",
-      "tree": {
-        "sha": "4606fb972f9631b4626f798f68858e3377189a29",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/4606fb972f9631b4626f798f68858e3377189a29"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/7cc3794214ec6584386e9d2d99bbd91285a7d6c2",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbcehvCRBK7hj4Ov3rIwAAdHIIAKVdK/gTnf/szASKC9FwmDwK\n9YHW/fFjIysyZa51e1XD1lrECqt0xLFuXnaTpH8JMjViQbKmPbvOAcSTuxx9N0ih\nPHDshxcUVprV9KQlG1adSPyKfluXCF/7VxCeJunpwAdYyNStokrQrCxW+yG+sKOs\nUY3g8hRyACSP9eX6leudGAV1Cqv3CzxSac+VWpGAzEvbAzyaQmiZfy2ZscY7iu+J\nhZtvvS8gSiPd+dlmA9kSHMMWUI2zdg7vZNaIm2Zlqz6BHYTTFfJ9AI0ncHub3UAf\nTfz73cN6HB63i2vj5KJmE5k52wIhMyaSsUj0+z9QsxsU/WvDomsPvSk5GAFWjYA=\n=sq50\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree 4606fb972f9631b4626f798f68858e3377189a29\nparent 873ab864b021ba5a96c2cee2240aaa737a90bd5d\nparent 66fb9963967a53f18759243fc4d3cada5d63c9c9\nauthor Danut Labici <labicidanut@gmail.com> 1534191727 +0300\ncommitter GitHub <noreply@github.com> 1534191727 +0300\n\nMerge pull request #12 from Akhliskun/riman_dev\n\nThe finall version of the git_api.py to pull the changelog from Mozil\u2026"
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/7cc3794214ec6584386e9d2d99bbd91285a7d6c2",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/7cc3794214ec6584386e9d2d99bbd91285a7d6c2",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/7cc3794214ec6584386e9d2d99bbd91285a7d6c2/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "873ab864b021ba5a96c2cee2240aaa737a90bd5d",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/873ab864b021ba5a96c2cee2240aaa737a90bd5d",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/873ab864b021ba5a96c2cee2240aaa737a90bd5d"
-      },
-      {
-        "sha": "66fb9963967a53f18759243fc4d3cada5d63c9c9",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/66fb9963967a53f18759243fc4d3cada5d63c9c9",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/66fb9963967a53f18759243fc4d3cada5d63c9c9"
-      }
-    ]
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-08-13T20:22:07Z"
+    }
   },
   {
     "sha": "66fb9963967a53f18759243fc4d3cada5d63c9c9",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjY2ZmI5OTYzOTY3YTUzZjE4NzU5MjQzZmM0ZDNjYWRhNWQ2M2M5Yzk=",
-    "commit": {
-      "author": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-12T04:59:52Z"
-      },
-      "committer": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-12T04:59:52Z"
-      },
-      "message": "Merge branch 'riman_dev' of https://github.com/Akhliskun/firefox-infra-changelog into riman_dev",
-      "tree": {
-        "sha": "4606fb972f9631b4626f798f68858e3377189a29",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/4606fb972f9631b4626f798f68858e3377189a29"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/66fb9963967a53f18759243fc4d3cada5d63c9c9",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/66fb9963967a53f18759243fc4d3cada5d63c9c9",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/66fb9963967a53f18759243fc4d3cada5d63c9c9",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/66fb9963967a53f18759243fc4d3cada5d63c9c9/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "2d41acc174c40fd134e9c69a24c4fb029f00aead",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/2d41acc174c40fd134e9c69a24c4fb029f00aead",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/2d41acc174c40fd134e9c69a24c4fb029f00aead"
-      },
-      {
-        "sha": "5c8af0805b00ea3ab63afdadb6d28154f51e802b",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/5c8af0805b00ea3ab63afdadb6d28154f51e802b",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/5c8af0805b00ea3ab63afdadb6d28154f51e802b"
-      }
-    ]
+    "commit_info": {
+      "name": "radu.iman",
+      "email": "radu.iman@p6198.svdomain1.softvision.ro",
+      "date": "2018-08-12T04:59:52Z"
+    }
   },
   {
     "sha": "2d41acc174c40fd134e9c69a24c4fb029f00aead",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjJkNDFhY2MxNzRjNDBmZDEzNGU5YzY5YTI0YzRmYjAyOWYwMGFlYWQ=",
-    "commit": {
-      "author": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-12T04:52:35Z"
-      },
-      "committer": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-12T04:59:09Z"
-      },
-      "message": "Delete tooltool from HG repositories and further work on my code.\n\nUpdate json_changelog.py file to gather all the commits from HG and GIT into a single json file.\nDelete tooltool repository from HG repository list.\nFix an issue in hg_api.py.",
-      "tree": {
-        "sha": "4606fb972f9631b4626f798f68858e3377189a29",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/4606fb972f9631b4626f798f68858e3377189a29"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/2d41acc174c40fd134e9c69a24c4fb029f00aead",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/2d41acc174c40fd134e9c69a24c4fb029f00aead",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/2d41acc174c40fd134e9c69a24c4fb029f00aead",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/2d41acc174c40fd134e9c69a24c4fb029f00aead/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "26fe42136464b7ee3b1259b7ca30e9e76304e77a",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/26fe42136464b7ee3b1259b7ca30e9e76304e77a",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/26fe42136464b7ee3b1259b7ca30e9e76304e77a"
-      }
-    ]
+    "commit_info": {
+      "name": "radu.iman",
+      "email": "radu.iman@p6198.svdomain1.softvision.ro",
+      "date": "2018-08-12T04:52:35Z"
+    }
   },
   {
     "sha": "5c8af0805b00ea3ab63afdadb6d28154f51e802b",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjVjOGFmMDgwNWIwMGVhM2FiNjNhZmRhZGI2ZDI4MTU0ZjUxZTgwMmI=",
-    "commit": {
-      "author": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-12T04:52:35Z"
-      },
-      "committer": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-12T04:52:35Z"
-      },
-      "message": "Delete tooltool from HG repositories and further work on my code.\n\nUpdate json_changelog.py file to gather all the commits from HG and GIT into a single json file.\nDelete tooltool repository from HG repository list.\nFix an issue in hg_api.py.",
-      "tree": {
-        "sha": "fd580c9fbaaf47e527eae90a3a2c5f6f7098fa48",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/fd580c9fbaaf47e527eae90a3a2c5f6f7098fa48"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/5c8af0805b00ea3ab63afdadb6d28154f51e802b",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/5c8af0805b00ea3ab63afdadb6d28154f51e802b",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/5c8af0805b00ea3ab63afdadb6d28154f51e802b",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/5c8af0805b00ea3ab63afdadb6d28154f51e802b/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "26fe42136464b7ee3b1259b7ca30e9e76304e77a",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/26fe42136464b7ee3b1259b7ca30e9e76304e77a",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/26fe42136464b7ee3b1259b7ca30e9e76304e77a"
-      }
-    ]
+    "commit_info": {
+      "name": "radu.iman",
+      "email": "radu.iman@p6198.svdomain1.softvision.ro",
+      "date": "2018-08-12T04:52:35Z"
+    }
   },
   {
     "sha": "26fe42136464b7ee3b1259b7ca30e9e76304e77a",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjI2ZmU0MjEzNjQ2NGI3ZWUzYjEyNTliN2NhMzBlOWU3NjMwNGU3N2E=",
-    "commit": {
-      "author": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-09T15:04:11Z"
-      },
-      "committer": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-09T15:04:11Z"
-      },
-      "message": "Add hg_api.py script to pull the changelog from Mozilla HG repositories and store it in hg_changelog.json file",
-      "tree": {
-        "sha": "1650557021fed2e1d23fac29a910b20c795ea032",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/1650557021fed2e1d23fac29a910b20c795ea032"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/26fe42136464b7ee3b1259b7ca30e9e76304e77a",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/26fe42136464b7ee3b1259b7ca30e9e76304e77a",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/26fe42136464b7ee3b1259b7ca30e9e76304e77a",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/26fe42136464b7ee3b1259b7ca30e9e76304e77a/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "6bb4d1b73862ef2cbf22b4eddf03c213e8e6697b",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/6bb4d1b73862ef2cbf22b4eddf03c213e8e6697b",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/6bb4d1b73862ef2cbf22b4eddf03c213e8e6697b"
-      }
-    ]
+    "commit_info": {
+      "name": "radu.iman",
+      "email": "radu.iman@p6198.svdomain1.softvision.ro",
+      "date": "2018-08-09T15:04:11Z"
+    }
   },
   {
     "sha": "6bb4d1b73862ef2cbf22b4eddf03c213e8e6697b",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjZiYjRkMWI3Mzg2MmVmMmNiZjIyYjRlZGRmMDNjMjEzZThlNjY5N2I=",
-    "commit": {
-      "author": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-06T15:52:51Z"
-      },
-      "committer": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-06T15:52:51Z"
-      },
-      "message": "Switch the sha key from commit dictionary with the commit number to easy pull the information from .json file. Add code into json_changelog.json to read the data stored in github_changelog.json",
-      "tree": {
-        "sha": "d4273388ce44b102ece662a575ba3a56341706e5",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/d4273388ce44b102ece662a575ba3a56341706e5"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/6bb4d1b73862ef2cbf22b4eddf03c213e8e6697b",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/6bb4d1b73862ef2cbf22b4eddf03c213e8e6697b",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/6bb4d1b73862ef2cbf22b4eddf03c213e8e6697b",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/6bb4d1b73862ef2cbf22b4eddf03c213e8e6697b/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "353aedd62537d65baf204bfc3d1584faaa6120e8",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/353aedd62537d65baf204bfc3d1584faaa6120e8",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/353aedd62537d65baf204bfc3d1584faaa6120e8"
-      }
-    ]
+    "commit_info": {
+      "name": "radu.iman",
+      "email": "radu.iman@p6198.svdomain1.softvision.ro",
+      "date": "2018-08-06T15:52:51Z"
+    }
   },
   {
     "sha": "353aedd62537d65baf204bfc3d1584faaa6120e8",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjM1M2FlZGQ2MjUzN2Q2NWJhZjIwNGJmYzNkMTU4NGZhYWE2MTIwZTg=",
-    "commit": {
-      "author": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-04T12:50:41Z"
-      },
-      "committer": {
-        "name": "radu.iman",
-        "email": "radu.iman@p6198.svdomain1.softvision.ro",
-        "date": "2018-08-04T12:50:41Z"
-      },
-      "message": "The finall version of the git_api.py to pull the changelog from Mozilla's repos and store the data in github_changelog as a json file",
-      "tree": {
-        "sha": "f2df3ba0b734f5dd5a7792a955b26647ae501ff6",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/f2df3ba0b734f5dd5a7792a955b26647ae501ff6"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/353aedd62537d65baf204bfc3d1584faaa6120e8",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/353aedd62537d65baf204bfc3d1584faaa6120e8",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/353aedd62537d65baf204bfc3d1584faaa6120e8",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/353aedd62537d65baf204bfc3d1584faaa6120e8/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "873ab864b021ba5a96c2cee2240aaa737a90bd5d",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/873ab864b021ba5a96c2cee2240aaa737a90bd5d",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/873ab864b021ba5a96c2cee2240aaa737a90bd5d"
-      }
-    ]
+    "commit_info": {
+      "name": "radu.iman",
+      "email": "radu.iman@p6198.svdomain1.softvision.ro",
+      "date": "2018-08-04T12:50:41Z"
+    }
   },
   {
     "sha": "873ab864b021ba5a96c2cee2240aaa737a90bd5d",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1Ojg3M2FiODY0YjAyMWJhNWE5NmMyY2VlMjI0MGFhYTczN2E5MGJkNWQ=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-21T02:32:05Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-07-21T02:32:05Z"
-      },
-      "message": "Merge pull request #10 from Akhliskun/zfay-dev\n\nupdated hg and git repo lists",
-      "tree": {
-        "sha": "ccd018a2917bcb4c40e179f010fd0a39a57afef4",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/ccd018a2917bcb4c40e179f010fd0a39a57afef4"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/873ab864b021ba5a96c2cee2240aaa737a90bd5d",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbUpslCRBK7hj4Ov3rIwAAdHIIAGFxMHxt2zd8zkz5Od2lb7Kz\nciqMRbfSno+hUlWZDt30DVLca5Ssnoq9EpzkySH3qRxgltP/pM3c8dopl+7W9iUb\nRBdUALBzFCktwL90IJjqwo6YeRq+aAK8u+1xVq966MY5dVFA88+nXjDCy0hrjfw+\nVCb5XQeWeB/X2yP3Ma5jaOPhaxs7uSG3xwIiAO1tUnL7i0/7wz+jBQ4mZ0Q58nzX\netzwKcBxdoqzXLVW4SxGUhL3nVrcHk9k9ZwVdpCv1AIgSRpk6Z9viLH0jmmzJLTO\nBSlactLHilfXCkwHPGc7aPwtk9vSHQ0HbxP9+nInN/JGsI3RYi6h3EyKydPXePA=\n=V0xV\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree ccd018a2917bcb4c40e179f010fd0a39a57afef4\nparent db1d9342ee01b147e039c5aa621358b7f1b1957b\nparent 9a660c8d9231af6d0ac28f05f466981b2e9cfde1\nauthor Danut Labici <labicidanut@gmail.com> 1532140325 +0300\ncommitter GitHub <noreply@github.com> 1532140325 +0300\n\nMerge pull request #10 from Akhliskun/zfay-dev\n\nupdated hg and git repo lists"
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/873ab864b021ba5a96c2cee2240aaa737a90bd5d",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/873ab864b021ba5a96c2cee2240aaa737a90bd5d",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/873ab864b021ba5a96c2cee2240aaa737a90bd5d/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "db1d9342ee01b147e039c5aa621358b7f1b1957b",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/db1d9342ee01b147e039c5aa621358b7f1b1957b",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/db1d9342ee01b147e039c5aa621358b7f1b1957b"
-      },
-      {
-        "sha": "9a660c8d9231af6d0ac28f05f466981b2e9cfde1",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/9a660c8d9231af6d0ac28f05f466981b2e9cfde1",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/9a660c8d9231af6d0ac28f05f466981b2e9cfde1"
-      }
-    ]
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-21T02:32:05Z"
+    }
   },
   {
     "sha": "9a660c8d9231af6d0ac28f05f466981b2e9cfde1",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjlhNjYwYzhkOTIzMWFmNmQwYWMyOGYwNWY0NjY5ODFiMmU5Y2ZkZTE=",
-    "commit": {
-      "author": {
-        "name": "Zsolt",
-        "email": "zfay@mozilla.com",
-        "date": "2018-07-21T02:18:42Z"
-      },
-      "committer": {
-        "name": "Zsolt",
-        "email": "zfay@mozilla.com",
-        "date": "2018-07-21T02:18:42Z"
-      },
-      "message": "updated hg and git repo lists",
-      "tree": {
-        "sha": "ccd018a2917bcb4c40e179f010fd0a39a57afef4",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/ccd018a2917bcb4c40e179f010fd0a39a57afef4"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/9a660c8d9231af6d0ac28f05f466981b2e9cfde1",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/9a660c8d9231af6d0ac28f05f466981b2e9cfde1",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/9a660c8d9231af6d0ac28f05f466981b2e9cfde1",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/9a660c8d9231af6d0ac28f05f466981b2e9cfde1/comments",
-    "author": {
-      "login": "zsoltfay",
-      "id": 37000130,
-      "node_id": "MDQ6VXNlcjM3MDAwMTMw",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/37000130?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/zsoltfay",
-      "html_url": "https://github.com/zsoltfay",
-      "followers_url": "https://api.github.com/users/zsoltfay/followers",
-      "following_url": "https://api.github.com/users/zsoltfay/following{/other_user}",
-      "gists_url": "https://api.github.com/users/zsoltfay/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/zsoltfay/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/zsoltfay/subscriptions",
-      "organizations_url": "https://api.github.com/users/zsoltfay/orgs",
-      "repos_url": "https://api.github.com/users/zsoltfay/repos",
-      "events_url": "https://api.github.com/users/zsoltfay/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/zsoltfay/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "zsoltfay",
-      "id": 37000130,
-      "node_id": "MDQ6VXNlcjM3MDAwMTMw",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/37000130?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/zsoltfay",
-      "html_url": "https://github.com/zsoltfay",
-      "followers_url": "https://api.github.com/users/zsoltfay/followers",
-      "following_url": "https://api.github.com/users/zsoltfay/following{/other_user}",
-      "gists_url": "https://api.github.com/users/zsoltfay/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/zsoltfay/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/zsoltfay/subscriptions",
-      "organizations_url": "https://api.github.com/users/zsoltfay/orgs",
-      "repos_url": "https://api.github.com/users/zsoltfay/repos",
-      "events_url": "https://api.github.com/users/zsoltfay/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/zsoltfay/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "db1d9342ee01b147e039c5aa621358b7f1b1957b",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/db1d9342ee01b147e039c5aa621358b7f1b1957b",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/db1d9342ee01b147e039c5aa621358b7f1b1957b"
-      }
-    ]
+    "commit_info": {
+      "name": "Zsolt",
+      "email": "zfay@mozilla.com",
+      "date": "2018-07-21T02:18:42Z"
+    }
   },
   {
     "sha": "db1d9342ee01b147e039c5aa621358b7f1b1957b",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OmRiMWQ5MzQyZWUwMWIxNDdlMDM5YzVhYTYyMTM1OGI3ZjFiMTk1N2I=",
-    "commit": {
-      "author": {
-        "name": "Bogdan-Cristian Crisan",
-        "email": "bogdan.18rap@gmail.com",
-        "date": "2018-07-16T14:06:59Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-07-16T14:06:59Z"
-      },
-      "message": "Merge pull request #9 from bccrisan/bcrisan-dev\n\nRenamed releng_repo.. to github_repo.. and added mercurial_repositories.md",
-      "tree": {
-        "sha": "a3b846b59243205e23811b9eee7f73b4dcc33e37",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/a3b846b59243205e23811b9eee7f73b4dcc33e37"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/db1d9342ee01b147e039c5aa621358b7f1b1957b",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbTKaDCRBK7hj4Ov3rIwAAdHIIAJdgKepnfb1t5GfqH8GwEZry\n7QtUkaJ8v6qZzYs/ylC5aO5tmo0hlLujyJLPHkTl8zPHaBBWlnzJhSRa/IwnrSTe\noFcqR+MIh1FEW2FFkixD/g9b/21jw0e0q/quL5XmUulCJFT1MzQklG4DcOW7pifE\nzGZHQmVC4r0r2e+GMQ1EudMW/s9rqIklVt8peCiKdvY7BeZpOoW4WSFGAGesYl3C\ns/9lyC99jR5YJaF1Hgw7lQaaTjGouA9F15XDOqB89t43eLnBpmVneNlCUuE7wHY5\n2rM85h2yBnLlJSdzA1q6fLVRLIqoAwu1wJrUSzLC5VQ+E5Juq1BtyKp+lPF9iTA=\n=h/Mn\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree a3b846b59243205e23811b9eee7f73b4dcc33e37\nparent 00b055b22e92d1675e323baa4dc38596a8fbb00f\nparent 034acc21a3575afcfe76204d888a3008aff203e8\nauthor Bogdan-Cristian Crisan <bogdan.18rap@gmail.com> 1531750019 +0300\ncommitter GitHub <noreply@github.com> 1531750019 +0300\n\nMerge pull request #9 from bccrisan/bcrisan-dev\n\nRenamed releng_repo.. to github_repo.. and added mercurial_repositories.md"
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/db1d9342ee01b147e039c5aa621358b7f1b1957b",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/db1d9342ee01b147e039c5aa621358b7f1b1957b",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/db1d9342ee01b147e039c5aa621358b7f1b1957b/comments",
-    "author": {
-      "login": "bccrisan",
-      "id": 19187500,
-      "node_id": "MDQ6VXNlcjE5MTg3NTAw",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/19187500?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/bccrisan",
-      "html_url": "https://github.com/bccrisan",
-      "followers_url": "https://api.github.com/users/bccrisan/followers",
-      "following_url": "https://api.github.com/users/bccrisan/following{/other_user}",
-      "gists_url": "https://api.github.com/users/bccrisan/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/bccrisan/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/bccrisan/subscriptions",
-      "organizations_url": "https://api.github.com/users/bccrisan/orgs",
-      "repos_url": "https://api.github.com/users/bccrisan/repos",
-      "events_url": "https://api.github.com/users/bccrisan/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/bccrisan/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "00b055b22e92d1675e323baa4dc38596a8fbb00f",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/00b055b22e92d1675e323baa4dc38596a8fbb00f",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/00b055b22e92d1675e323baa4dc38596a8fbb00f"
-      },
-      {
-        "sha": "034acc21a3575afcfe76204d888a3008aff203e8",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/034acc21a3575afcfe76204d888a3008aff203e8",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/034acc21a3575afcfe76204d888a3008aff203e8"
-      }
-    ]
+    "commit_info": {
+      "name": "Bogdan-Cristian Crisan",
+      "email": "bogdan.18rap@gmail.com",
+      "date": "2018-07-16T14:06:59Z"
+    }
   },
   {
     "sha": "034acc21a3575afcfe76204d888a3008aff203e8",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjAzNGFjYzIxYTM1NzVhZmNmZTc2MjA0ZDg4OGEzMDA4YWZmMjAzZTg=",
-    "commit": {
-      "author": {
-        "name": "Bogdan Crisan",
-        "email": "bogdan.crisan_sv",
-        "date": "2018-07-16T14:03:29Z"
-      },
-      "committer": {
-        "name": "Bogdan Crisan",
-        "email": "bogdan.crisan_sv",
-        "date": "2018-07-16T14:03:29Z"
-      },
-      "message": "renamed releng_repo.. to github_repo.. and added mercurial_repositories.md",
-      "tree": {
-        "sha": "a3b846b59243205e23811b9eee7f73b4dcc33e37",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/a3b846b59243205e23811b9eee7f73b4dcc33e37"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/034acc21a3575afcfe76204d888a3008aff203e8",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/034acc21a3575afcfe76204d888a3008aff203e8",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/034acc21a3575afcfe76204d888a3008aff203e8",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/034acc21a3575afcfe76204d888a3008aff203e8/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "562dfd6522211649680214160f3802876a18a16a",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/562dfd6522211649680214160f3802876a18a16a",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/562dfd6522211649680214160f3802876a18a16a"
-      }
-    ]
+    "commit_info": {
+      "name": "Bogdan Crisan",
+      "email": "bogdan.crisan_sv",
+      "date": "2018-07-16T14:03:29Z"
+    }
   },
   {
     "sha": "00b055b22e92d1675e323baa4dc38596a8fbb00f",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjAwYjA1NWIyMmU5MmQxNjc1ZTMyM2JhYTRkYzM4NTk2YThmYmIwMGY=",
-    "commit": {
-      "author": {
-        "name": "Bogdan-Cristian Crisan",
-        "email": "bogdan.18rap@gmail.com",
-        "date": "2018-07-16T13:13:31Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-07-16T13:13:31Z"
-      },
-      "message": "Merge pull request #8 from bccrisan/bcrisan-dev\n\nRenamed folder as requested.",
-      "tree": {
-        "sha": "3d03b85bcc0017a8860af9c20f50eeab430f6979",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/3d03b85bcc0017a8860af9c20f50eeab430f6979"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/00b055b22e92d1675e323baa4dc38596a8fbb00f",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbTJn7CRBK7hj4Ov3rIwAAdHIIAHkpPZMQVL9IwtM5JXwsp3ui\nqrGInIWLwwm5674rni4eWDnZ5UV9Xe8vSOFGuvr77LzOuoiSILQAP0yRVfqPvAzA\nBebG1tWBRQDpBvLzqj7uoLEoxpTWifWB2cl/6zUXsjcYChFdALmZgkTu0PXsOJDH\nqFvFt9a196jKXu5bYBImmp4tB59o8IXtjEdhrFLvSe8+vpdAtQFOtKskSQrEofYJ\nhI8AtuSmFbx10vDM9QLD26lr7dckmzpGUwjJoRG4nnt95oHMJpEuN/QkVEPxCujR\nIWWbiTgCjX+5Tvyd9UyD8F3dzA8fyIRQ9OZzqQ/2QNr0LREt6Vh6lojLn6aQlDo=\n=cKE9\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree 3d03b85bcc0017a8860af9c20f50eeab430f6979\nparent 24aafb2b304385ea9f1421d0b7e5c0281ede70a8\nparent 562dfd6522211649680214160f3802876a18a16a\nauthor Bogdan-Cristian Crisan <bogdan.18rap@gmail.com> 1531746811 +0300\ncommitter GitHub <noreply@github.com> 1531746811 +0300\n\nMerge pull request #8 from bccrisan/bcrisan-dev\n\nRenamed folder as requested."
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/00b055b22e92d1675e323baa4dc38596a8fbb00f",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/00b055b22e92d1675e323baa4dc38596a8fbb00f",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/00b055b22e92d1675e323baa4dc38596a8fbb00f/comments",
-    "author": {
-      "login": "bccrisan",
-      "id": 19187500,
-      "node_id": "MDQ6VXNlcjE5MTg3NTAw",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/19187500?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/bccrisan",
-      "html_url": "https://github.com/bccrisan",
-      "followers_url": "https://api.github.com/users/bccrisan/followers",
-      "following_url": "https://api.github.com/users/bccrisan/following{/other_user}",
-      "gists_url": "https://api.github.com/users/bccrisan/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/bccrisan/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/bccrisan/subscriptions",
-      "organizations_url": "https://api.github.com/users/bccrisan/orgs",
-      "repos_url": "https://api.github.com/users/bccrisan/repos",
-      "events_url": "https://api.github.com/users/bccrisan/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/bccrisan/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "24aafb2b304385ea9f1421d0b7e5c0281ede70a8",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/24aafb2b304385ea9f1421d0b7e5c0281ede70a8",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/24aafb2b304385ea9f1421d0b7e5c0281ede70a8"
-      },
-      {
-        "sha": "562dfd6522211649680214160f3802876a18a16a",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/562dfd6522211649680214160f3802876a18a16a",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/562dfd6522211649680214160f3802876a18a16a"
-      }
-    ]
+    "commit_info": {
+      "name": "Bogdan-Cristian Crisan",
+      "email": "bogdan.18rap@gmail.com",
+      "date": "2018-07-16T13:13:31Z"
+    }
   },
   {
     "sha": "562dfd6522211649680214160f3802876a18a16a",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjU2MmRmZDY1MjIyMTE2NDk2ODAyMTQxNjBmMzgwMjg3NmExOGExNmE=",
-    "commit": {
-      "author": {
-        "name": "Bogdan Crisan",
-        "email": "bogdan.crisan_sv",
-        "date": "2018-07-16T13:08:05Z"
-      },
-      "committer": {
-        "name": "Bogdan Crisan",
-        "email": "bogdan.crisan_sv",
-        "date": "2018-07-16T13:08:05Z"
-      },
-      "message": "renamed folder",
-      "tree": {
-        "sha": "3d03b85bcc0017a8860af9c20f50eeab430f6979",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/3d03b85bcc0017a8860af9c20f50eeab430f6979"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/562dfd6522211649680214160f3802876a18a16a",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/562dfd6522211649680214160f3802876a18a16a",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/562dfd6522211649680214160f3802876a18a16a",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/562dfd6522211649680214160f3802876a18a16a/comments",
-    "author": null,
-    "committer": null,
-    "parents": [
-      {
-        "sha": "b2fc16a95a4c448424a968497a6845516235c1b7",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b2fc16a95a4c448424a968497a6845516235c1b7",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/b2fc16a95a4c448424a968497a6845516235c1b7"
-      }
-    ]
+    "commit_info": {
+      "name": "Bogdan Crisan",
+      "email": "bogdan.crisan_sv",
+      "date": "2018-07-16T13:08:05Z"
+    }
   },
   {
     "sha": "24aafb2b304385ea9f1421d0b7e5c0281ede70a8",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjI0YWFmYjJiMzA0Mzg1ZWE5ZjE0MjFkMGI3ZTVjMDI4MWVkZTcwYTg=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-15T14:48:19Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-07-15T14:48:19Z"
-      },
-      "message": "Merge pull request #7 from bccrisan/bcrisan-dev\n\nCreated github-repositories folder and releng_repositories.md",
-      "tree": {
-        "sha": "d4abd63b71a4b7c11976a52d29b9f5755ffd2a08",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/d4abd63b71a4b7c11976a52d29b9f5755ffd2a08"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/24aafb2b304385ea9f1421d0b7e5c0281ede70a8",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbS16zCRBK7hj4Ov3rIwAAdHIIAEfqcICuHBN9Y4X7H4qFhGez\ntgrOIknLrQXtO100i9Ztb9Qmi8bRBgXEj/pMDg1aVHRthhqDZBrgeOLkf5DUL1p9\nMCdtYE4hWWlNrjmQRME83bGDK3M45z2iMCYPeWQTZZWzCJRqjYzrZN8VHbHLtzBR\n49ZR53MPbhHI1ficWvfjaEcAlak+UAbH0Ddm6fh4FAKzYvgV+JQqWiFao+gkjejP\n6NyBVirxCsaALjOynbOtffGROYP7oy0OcoDFWWsnH07x0SS+FVPKm04+fkEAEFca\nE0VddyHPRfuxvtk6z2e0S5KzQaK2hNiiVAouc3xLX5Zu7574ESNpUNUbj1agMKo=\n=bHbT\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree d4abd63b71a4b7c11976a52d29b9f5755ffd2a08\nparent 575d97c5aa733a299bec705e93af802a292980f5\nparent b2fc16a95a4c448424a968497a6845516235c1b7\nauthor Danut Labici <labicidanut@gmail.com> 1531666099 +0300\ncommitter GitHub <noreply@github.com> 1531666099 +0300\n\nMerge pull request #7 from bccrisan/bcrisan-dev\n\nCreated github-repositories folder and releng_repositories.md"
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/24aafb2b304385ea9f1421d0b7e5c0281ede70a8",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/24aafb2b304385ea9f1421d0b7e5c0281ede70a8",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/24aafb2b304385ea9f1421d0b7e5c0281ede70a8/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "575d97c5aa733a299bec705e93af802a292980f5",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/575d97c5aa733a299bec705e93af802a292980f5",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/575d97c5aa733a299bec705e93af802a292980f5"
-      },
-      {
-        "sha": "b2fc16a95a4c448424a968497a6845516235c1b7",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b2fc16a95a4c448424a968497a6845516235c1b7",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/b2fc16a95a4c448424a968497a6845516235c1b7"
-      }
-    ]
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-15T14:48:19Z"
+    }
   },
   {
     "sha": "b2fc16a95a4c448424a968497a6845516235c1b7",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OmIyZmMxNmE5NWE0YzQ0ODQyNGE5Njg0OTdhNjg0NTUxNjIzNWMxYjc=",
-    "commit": {
-      "author": {
-        "name": "Bogdan Crisan",
-        "email": "bogdancrisan2303@gmail.com",
-        "date": "2018-07-14T16:00:54Z"
-      },
-      "committer": {
-        "name": "Bogdan Crisan",
-        "email": "bogdancrisan2303@gmail.com",
-        "date": "2018-07-14T16:00:54Z"
-      },
-      "message": "Made github-repositories folder and created releng_repositories.md",
-      "tree": {
-        "sha": "d4abd63b71a4b7c11976a52d29b9f5755ffd2a08",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/d4abd63b71a4b7c11976a52d29b9f5755ffd2a08"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/b2fc16a95a4c448424a968497a6845516235c1b7",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b2fc16a95a4c448424a968497a6845516235c1b7",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/b2fc16a95a4c448424a968497a6845516235c1b7",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b2fc16a95a4c448424a968497a6845516235c1b7/comments",
-    "author": {
-      "login": "bccrisan",
-      "id": 19187500,
-      "node_id": "MDQ6VXNlcjE5MTg3NTAw",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/19187500?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/bccrisan",
-      "html_url": "https://github.com/bccrisan",
-      "followers_url": "https://api.github.com/users/bccrisan/followers",
-      "following_url": "https://api.github.com/users/bccrisan/following{/other_user}",
-      "gists_url": "https://api.github.com/users/bccrisan/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/bccrisan/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/bccrisan/subscriptions",
-      "organizations_url": "https://api.github.com/users/bccrisan/orgs",
-      "repos_url": "https://api.github.com/users/bccrisan/repos",
-      "events_url": "https://api.github.com/users/bccrisan/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/bccrisan/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "bccrisan",
-      "id": 19187500,
-      "node_id": "MDQ6VXNlcjE5MTg3NTAw",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/19187500?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/bccrisan",
-      "html_url": "https://github.com/bccrisan",
-      "followers_url": "https://api.github.com/users/bccrisan/followers",
-      "following_url": "https://api.github.com/users/bccrisan/following{/other_user}",
-      "gists_url": "https://api.github.com/users/bccrisan/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/bccrisan/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/bccrisan/subscriptions",
-      "organizations_url": "https://api.github.com/users/bccrisan/orgs",
-      "repos_url": "https://api.github.com/users/bccrisan/repos",
-      "events_url": "https://api.github.com/users/bccrisan/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/bccrisan/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "575d97c5aa733a299bec705e93af802a292980f5",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/575d97c5aa733a299bec705e93af802a292980f5",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/575d97c5aa733a299bec705e93af802a292980f5"
-      }
-    ]
+    "commit_info": {
+      "name": "Bogdan Crisan",
+      "email": "bogdancrisan2303@gmail.com",
+      "date": "2018-07-14T16:00:54Z"
+    }
   },
   {
     "sha": "575d97c5aa733a299bec705e93af802a292980f5",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjU3NWQ5N2M1YWE3MzNhMjk5YmVjNzA1ZTkzYWY4MDJhMjkyOTgwZjU=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-14T15:32:38Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-07-14T15:32:38Z"
-      },
-      "message": "Create pull_request_template.md",
-      "tree": {
-        "sha": "b4961ddcdc03101b3ea307d24d629fc7ef459dc2",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/b4961ddcdc03101b3ea307d24d629fc7ef459dc2"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/575d97c5aa733a299bec705e93af802a292980f5",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbSheWCRBK7hj4Ov3rIwAAdHIIAIRzl8jC1cU5U6LqzlKoYsyz\nR7CU9sUZrIMPw3pY9oVtmtKDk4sNiyfumRi4PuJjQPPeYcPwgYW89xgTWMoy2WEr\nJltb7gbMLiD4F59AfZtBpkWeGub606Va74f+nzQ6M+3PoA3R/T29/ZCIZB+N3V3Q\nKaSr9sR6zM7V97wK59Zrjfdv4DxARGLKomdjjKIPsMQJJWKko6anlO/movc120Gu\nAggsjMFaEhIPuOFrZx9Wt/S7NgR4Q/dHztGkdX+ju3tGnzgSbbwHsPGcL2KeDP2X\n8Kn7Gti5vwmzyJoEYZDUvwaZLrD5CWmwvurim9gRYfSpoz+cHLJICHCzNFNf+TM=\n=Mc3j\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree b4961ddcdc03101b3ea307d24d629fc7ef459dc2\nparent dc319ada4e5d03d017250fddd76db3460db8d029\nauthor Danut Labici <labicidanut@gmail.com> 1531582358 +0300\ncommitter GitHub <noreply@github.com> 1531582358 +0300\n\nCreate pull_request_template.md"
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/575d97c5aa733a299bec705e93af802a292980f5",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/575d97c5aa733a299bec705e93af802a292980f5",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/575d97c5aa733a299bec705e93af802a292980f5/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "dc319ada4e5d03d017250fddd76db3460db8d029",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/dc319ada4e5d03d017250fddd76db3460db8d029",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/dc319ada4e5d03d017250fddd76db3460db8d029"
-      }
-    ]
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-14T15:32:38Z"
+    }
   },
   {
     "sha": "dc319ada4e5d03d017250fddd76db3460db8d029",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OmRjMzE5YWRhNGU1ZDAzZDAxNzI1MGZkZGQ3NmRiMzQ2MGRiOGQwMjk=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-14T15:24:41Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-07-14T15:24:41Z"
-      },
-      "message": "Delete general-issues-template.md",
-      "tree": {
-        "sha": "4ed48e0b2d91d41ca8ccc56e419cb3284250e5ab",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/4ed48e0b2d91d41ca8ccc56e419cb3284250e5ab"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/dc319ada4e5d03d017250fddd76db3460db8d029",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbShW5CRBK7hj4Ov3rIwAAdHIIAIzRHM11qd477deFII5tJsxu\nb7XYfKFG0yMfCed6M0qI3iIdTi0EFpHZRKnZ2kFjvo8pVaE2yOT4cpoIL1jl797N\nPeKLvTuGiwol2K6OczUrvODjQ/KqNCUduuXRC+07V0Bh442vlHLoZ+k8SNxl+e2M\nqZ0oseGZKMJWRRKNyK6Ug5aQSqS7KEOCkJZ28eANJX8MitnfPe38lkRtNZe2wVsi\nx8J4MK07UvWT1iIBHV8lvhr2EnrZ8KrO5nd6jiC7J3MUzm4r4alDL0k9DCl7xAGq\nDjtlQqp4KZgTy5Hxd5l3PIFymAXUdhmsIEVU0+6zZMH6G5xB8ogsSkexjh08vCg=\n=pyZg\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree 4ed48e0b2d91d41ca8ccc56e419cb3284250e5ab\nparent 0ece626b09fa758c72cff5c628fe362cab47c76f\nauthor Danut Labici <labicidanut@gmail.com> 1531581881 +0300\ncommitter GitHub <noreply@github.com> 1531581881 +0300\n\nDelete general-issues-template.md"
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/dc319ada4e5d03d017250fddd76db3460db8d029",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/dc319ada4e5d03d017250fddd76db3460db8d029",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/dc319ada4e5d03d017250fddd76db3460db8d029/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "0ece626b09fa758c72cff5c628fe362cab47c76f",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/0ece626b09fa758c72cff5c628fe362cab47c76f",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/0ece626b09fa758c72cff5c628fe362cab47c76f"
-      }
-    ]
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-14T15:24:41Z"
+    }
   },
   {
     "sha": "0ece626b09fa758c72cff5c628fe362cab47c76f",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjBlY2U2MjZiMDlmYTc1OGM3MmNmZjVjNjI4ZmUzNjJjYWI0N2M3NmY=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-14T15:14:34Z"
-      },
-      "committer": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-14T15:14:34Z"
-      },
-      "message": "Small typo fix",
-      "tree": {
-        "sha": "4f7b7a34a88e2b3090a95fb158a1977558baf3a1",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/4f7b7a34a88e2b3090a95fb158a1977558baf3a1"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/0ece626b09fa758c72cff5c628fe362cab47c76f",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/0ece626b09fa758c72cff5c628fe362cab47c76f",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/0ece626b09fa758c72cff5c628fe362cab47c76f",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/0ece626b09fa758c72cff5c628fe362cab47c76f/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "14ce5b142e0689b901c14f773f85a9c9654b35a7",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/14ce5b142e0689b901c14f773f85a9c9654b35a7",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/14ce5b142e0689b901c14f773f85a9c9654b35a7"
-      }
-    ]
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-14T15:14:34Z"
+    }
   },
   {
     "sha": "14ce5b142e0689b901c14f773f85a9c9654b35a7",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjE0Y2U1YjE0MmUwNjg5YjkwMWMxNGY3NzNmODVhOWM5NjU0YjM1YTc=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-14T14:31:00Z"
-      },
-      "committer": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-14T14:31:00Z"
-      },
-      "message": "Introduced issue templates",
-      "tree": {
-        "sha": "d46734ae6c740960b3722b2b6e5aa96a384310a7",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/d46734ae6c740960b3722b2b6e5aa96a384310a7"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/14ce5b142e0689b901c14f773f85a9c9654b35a7",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/14ce5b142e0689b901c14f773f85a9c9654b35a7",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/14ce5b142e0689b901c14f773f85a9c9654b35a7",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/14ce5b142e0689b901c14f773f85a9c9654b35a7/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "1e65fb65b8d726804cd14da6503778c8086d37d6",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/1e65fb65b8d726804cd14da6503778c8086d37d6",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/1e65fb65b8d726804cd14da6503778c8086d37d6"
-      }
-    ]
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-14T14:31:00Z"
+    }
   },
   {
     "sha": "1e65fb65b8d726804cd14da6503778c8086d37d6",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjFlNjVmYjY1YjhkNzI2ODA0Y2QxNGRhNjUwMzc3OGM4MDg2ZDM3ZDY=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T06:15:13Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-07-13T06:15:13Z"
-      },
-      "message": "Update README.md",
-      "tree": {
-        "sha": "71116faeb952fe4158a6537c2d1875db5e7f6c4e",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/71116faeb952fe4158a6537c2d1875db5e7f6c4e"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/1e65fb65b8d726804cd14da6503778c8086d37d6",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbSENxCRBK7hj4Ov3rIwAAdHIIAJwTaLzPPRBS+sX3e9nk07Sn\nCCT/swQwukmNaKT+lCRofSUwk7fLhjLwCwRt+RNSUDTwVEYqbK/raYBGPhebKuE3\n4ptfT0iCQlBrpGhyDzgQreLzIR7oO7s8SVKrZurcHeJF5iCf3lW8uh30ZY//6pJg\nCKgGkzkyLsk28sS9NXhHSIm/KStgf1cRmYlumz1ALqLXB6i9lLToDLrdmgMmleva\n88yKWeoPyp05h+7Qpp0m6S4NNowgR7Wtsqauxn+J7q9R670jx546SNlJ2vSZ6jDK\nFxc3YbWxItIj3so8P9eY8438RWZGGnJGccQFz0kGs1TuVcHz2RemxtYbZDWv1H8=\n=4Etw\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree 71116faeb952fe4158a6537c2d1875db5e7f6c4e\nparent 7c68e43aa5ca63c1f19c5bea61b03644c02f94be\nauthor Danut Labici <labicidanut@gmail.com> 1531462513 +0300\ncommitter GitHub <noreply@github.com> 1531462513 +0300\n\nUpdate README.md"
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/1e65fb65b8d726804cd14da6503778c8086d37d6",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/1e65fb65b8d726804cd14da6503778c8086d37d6",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/1e65fb65b8d726804cd14da6503778c8086d37d6/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "7c68e43aa5ca63c1f19c5bea61b03644c02f94be",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/7c68e43aa5ca63c1f19c5bea61b03644c02f94be",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/7c68e43aa5ca63c1f19c5bea61b03644c02f94be"
-      }
-    ]
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-13T06:15:13Z"
+    }
   },
   {
     "sha": "7c68e43aa5ca63c1f19c5bea61b03644c02f94be",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjdjNjhlNDNhYTVjYTYzYzFmMTljNWJlYTYxYjAzNjQ0YzAyZjk0YmU=",
-    "commit": {
-      "author": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:11:42Z"
-      },
-      "committer": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:11:42Z"
-      },
-      "message": "Fixed a small typo",
-      "tree": {
-        "sha": "204bf703f87a2729f4cbf01bbc7236ffca4d0a7d",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/204bf703f87a2729f4cbf01bbc7236ffca4d0a7d"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/7c68e43aa5ca63c1f19c5bea61b03644c02f94be",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/7c68e43aa5ca63c1f19c5bea61b03644c02f94be",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/7c68e43aa5ca63c1f19c5bea61b03644c02f94be",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/7c68e43aa5ca63c1f19c5bea61b03644c02f94be/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "50631ab12ddab172a2ae3b969bcd1a07c55b79cd",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/50631ab12ddab172a2ae3b969bcd1a07c55b79cd",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/50631ab12ddab172a2ae3b969bcd1a07c55b79cd"
-      }
-    ]
+    "commit_info": {
+      "name": "Akhliskun",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-13T03:11:42Z"
+    }
   },
   {
     "sha": "50631ab12ddab172a2ae3b969bcd1a07c55b79cd",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjUwNjMxYWIxMmRkYWIxNzJhMmFlM2I5NjliY2QxYTA3YzU1Yjc5Y2Q=",
-    "commit": {
-      "author": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:08:55Z"
-      },
-      "committer": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:08:55Z"
-      },
-      "message": "Merge branch 'master' of https://github.com/Akhliskun/firefox-infra-changelog",
-      "tree": {
-        "sha": "f0020087bdbe66f1f7bff675272e81c2d886f4eb",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/f0020087bdbe66f1f7bff675272e81c2d886f4eb"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/50631ab12ddab172a2ae3b969bcd1a07c55b79cd",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/50631ab12ddab172a2ae3b969bcd1a07c55b79cd",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/50631ab12ddab172a2ae3b969bcd1a07c55b79cd",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/50631ab12ddab172a2ae3b969bcd1a07c55b79cd/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "7ed0b935dda3a9047d797136088b1ce728cacabf",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/7ed0b935dda3a9047d797136088b1ce728cacabf",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/7ed0b935dda3a9047d797136088b1ce728cacabf"
-      },
-      {
-        "sha": "5da90da0fd8876e85773e327d821ec964656d379",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/5da90da0fd8876e85773e327d821ec964656d379",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/5da90da0fd8876e85773e327d821ec964656d379"
-      }
-    ]
+    "commit_info": {
+      "name": "Akhliskun",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-13T03:08:55Z"
+    }
   },
   {
     "sha": "7ed0b935dda3a9047d797136088b1ce728cacabf",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjdlZDBiOTM1ZGRhM2E5MDQ3ZDc5NzEzNjA4OGIxY2U3MjhjYWNhYmY=",
-    "commit": {
-      "author": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:07:15Z"
-      },
-      "committer": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:08:35Z"
-      },
-      "message": "Fixed link towards open issues",
-      "tree": {
-        "sha": "f0020087bdbe66f1f7bff675272e81c2d886f4eb",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/f0020087bdbe66f1f7bff675272e81c2d886f4eb"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/7ed0b935dda3a9047d797136088b1ce728cacabf",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/7ed0b935dda3a9047d797136088b1ce728cacabf",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/7ed0b935dda3a9047d797136088b1ce728cacabf",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/7ed0b935dda3a9047d797136088b1ce728cacabf/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "b343a16f7267bd2abb758063df78c5a812853119",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b343a16f7267bd2abb758063df78c5a812853119",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/b343a16f7267bd2abb758063df78c5a812853119"
-      }
-    ]
+    "commit_info": {
+      "name": "Akhliskun",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-13T03:07:15Z"
+    }
   },
   {
     "sha": "5da90da0fd8876e85773e327d821ec964656d379",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OjVkYTkwZGEwZmQ4ODc2ZTg1NzczZTMyN2Q4MjFlYzk2NDY1NmQzNzk=",
-    "commit": {
-      "author": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:07:15Z"
-      },
-      "committer": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:07:58Z"
-      },
-      "message": "Fixed link towards open issues",
-      "tree": {
-        "sha": "3341e3b7bcb4ff04bceb610a467b14d171b530d4",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/3341e3b7bcb4ff04bceb610a467b14d171b530d4"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/5da90da0fd8876e85773e327d821ec964656d379",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/5da90da0fd8876e85773e327d821ec964656d379",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/5da90da0fd8876e85773e327d821ec964656d379",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/5da90da0fd8876e85773e327d821ec964656d379/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "b343a16f7267bd2abb758063df78c5a812853119",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b343a16f7267bd2abb758063df78c5a812853119",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/b343a16f7267bd2abb758063df78c5a812853119"
-      }
-    ]
+    "commit_info": {
+      "name": "Akhliskun",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-13T03:07:15Z"
+    }
   },
   {
     "sha": "b343a16f7267bd2abb758063df78c5a812853119",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OmIzNDNhMTZmNzI2N2JkMmFiYjc1ODA2M2RmNzhjNWE4MTI4NTMxMTk=",
-    "commit": {
-      "author": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:05:27Z"
-      },
-      "committer": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T03:05:27Z"
-      },
-      "message": "Added more info to README.md and some placeholder files",
-      "tree": {
-        "sha": "0d4590e40153491fa37975716ca0fe28c0906fcc",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/0d4590e40153491fa37975716ca0fe28c0906fcc"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/b343a16f7267bd2abb758063df78c5a812853119",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b343a16f7267bd2abb758063df78c5a812853119",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/b343a16f7267bd2abb758063df78c5a812853119",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b343a16f7267bd2abb758063df78c5a812853119/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "b1270c0bff78a9229f65a8ed921b3590b2c650ac",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b1270c0bff78a9229f65a8ed921b3590b2c650ac",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/b1270c0bff78a9229f65a8ed921b3590b2c650ac"
-      }
-    ]
+    "commit_info": {
+      "name": "Akhliskun",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-13T03:05:27Z"
+    }
   },
   {
     "sha": "b1270c0bff78a9229f65a8ed921b3590b2c650ac",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OmIxMjcwYzBiZmY3OGE5MjI5ZjY1YThlZDkyMWIzNTkwYjJjNjUwYWM=",
-    "commit": {
-      "author": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T00:48:34Z"
-      },
-      "committer": {
-        "name": "Akhliskun",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T00:48:34Z"
-      },
-      "message": "Updated .gitignore to exclude files from PyCharm and Visual Studio Code, and added some test files",
-      "tree": {
-        "sha": "4faea712d922cc0e1b7169c56738ffa1ea449a8f",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/4faea712d922cc0e1b7169c56738ffa1ea449a8f"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/b1270c0bff78a9229f65a8ed921b3590b2c650ac",
-      "comment_count": 0,
-      "verification": {
-        "verified": false,
-        "reason": "unsigned",
-        "signature": null,
-        "payload": null
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b1270c0bff78a9229f65a8ed921b3590b2c650ac",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/b1270c0bff78a9229f65a8ed921b3590b2c650ac",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/b1270c0bff78a9229f65a8ed921b3590b2c650ac/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": [
-      {
-        "sha": "d851a459db0b0ae562d8a22dcf8d8df2365b689c",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/d851a459db0b0ae562d8a22dcf8d8df2365b689c",
-        "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/d851a459db0b0ae562d8a22dcf8d8df2365b689c"
-      }
-    ]
+    "commit_info": {
+      "name": "Akhliskun",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-13T00:48:34Z"
+    }
   },
   {
     "sha": "d851a459db0b0ae562d8a22dcf8d8df2365b689c",
-    "node_id": "MDY6Q29tbWl0MTQwNzc2NjE1OmQ4NTFhNDU5ZGIwYjBhZTU2MmQ4YTIyZGNmOGQ4ZGYyMzY1YjY4OWM=",
-    "commit": {
-      "author": {
-        "name": "Danut Labici",
-        "email": "labicidanut@gmail.com",
-        "date": "2018-07-13T00:15:13Z"
-      },
-      "committer": {
-        "name": "GitHub",
-        "email": "noreply@github.com",
-        "date": "2018-07-13T00:15:13Z"
-      },
-      "message": "Initial commit",
-      "tree": {
-        "sha": "79cf7344b04fffade856d71055a1786ef4cf3c9f",
-        "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/trees/79cf7344b04fffade856d71055a1786ef4cf3c9f"
-      },
-      "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/git/commits/d851a459db0b0ae562d8a22dcf8d8df2365b689c",
-      "comment_count": 0,
-      "verification": {
-        "verified": true,
-        "reason": "valid",
-        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJbR+8SCRBK7hj4Ov3rIwAAdHIIAFl9iWS4q/yNWGMpaL2Leupt\nSUJy3Yhc+CpydXL0ZBvvHtsTb/zDxP7L+vgc08R/EgVN63wqd2LvFBLPFz2eQ69I\nwq174Dspr0wBl09EcxO9YzGb/hIWbXWkBnujRdMiPL/VGZgAd3ngaw3gH/i2mQKJ\nZFrh9aRjx7hlnWCqKiSyyjhwmTeFXdAJfBJ+F+wpQxoW0Q68CQfKu5+ctLK5bg88\nNW8uDQO27HP6L4MiWcmaJCHW6o9s4glOoEmZ6YNkrUumds2ffM7I+CVUY9xAEa1i\nyUZQs48wuurwyCS3anovtHjzi0EBnNL14OonNsg6HTMg1W30/IlKRUpDSPWb9gk=\n=yY57\n-----END PGP SIGNATURE-----\n",
-        "payload": "tree 79cf7344b04fffade856d71055a1786ef4cf3c9f\nauthor Danut Labici <labicidanut@gmail.com> 1531440913 +0300\ncommitter GitHub <noreply@github.com> 1531440913 +0300\n\nInitial commit"
-      }
-    },
-    "url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/d851a459db0b0ae562d8a22dcf8d8df2365b689c",
-    "html_url": "https://github.com/Akhliskun/firefox-infra-changelog/commit/d851a459db0b0ae562d8a22dcf8d8df2365b689c",
-    "comments_url": "https://api.github.com/repos/Akhliskun/firefox-infra-changelog/commits/d851a459db0b0ae562d8a22dcf8d8df2365b689c/comments",
-    "author": {
-      "login": "Akhliskun",
-      "id": 25681178,
-      "node_id": "MDQ6VXNlcjI1NjgxMTc4",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/25681178?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/Akhliskun",
-      "html_url": "https://github.com/Akhliskun",
-      "followers_url": "https://api.github.com/users/Akhliskun/followers",
-      "following_url": "https://api.github.com/users/Akhliskun/following{/other_user}",
-      "gists_url": "https://api.github.com/users/Akhliskun/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/Akhliskun/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/Akhliskun/subscriptions",
-      "organizations_url": "https://api.github.com/users/Akhliskun/orgs",
-      "repos_url": "https://api.github.com/users/Akhliskun/repos",
-      "events_url": "https://api.github.com/users/Akhliskun/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/Akhliskun/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "committer": {
-      "login": "web-flow",
-      "id": 19864447,
-      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/web-flow",
-      "html_url": "https://github.com/web-flow",
-      "followers_url": "https://api.github.com/users/web-flow/followers",
-      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
-      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
-      "organizations_url": "https://api.github.com/users/web-flow/orgs",
-      "repos_url": "https://api.github.com/users/web-flow/repos",
-      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/web-flow/received_events",
-      "type": "User",
-      "site_admin": false
-    },
-    "parents": []
+    "commit_info": {
+      "name": "Danut Labici",
+      "email": "labicidanut@gmail.com",
+      "date": "2018-07-13T00:15:13Z"
+    }
   }
 ]

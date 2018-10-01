@@ -25,29 +25,18 @@ json_data = requests.get(api_url).json()  # get data from url and convert to jso
 #             'funsize': 'https://api.github.com/repos/mozilla-releng/funsize/commits',
 #             'signtool': 'https://api.github.com/repos/mozilla-releng/signtool/commits'}
 
-with open('github_changelog.json', 'w') as file:
-    json.dump(json_data, file, indent=2)
-file.close()
-
-new_list = []
+new_list = []                  # main list that will contain data of all commits
 for item in json_data:
-    sha_dict = {}
+    big_daddy = {}             # main dictionary. will contain all data about a single commit
     sha = item['sha']
-    sha_dict.update({'sha', sha})
-    new_list.append(sha_dict)
-    author_dict = {}
-    name = {'name', item['commit']['author']['name']}
-    commit_date = {'date', item['commit']['author']['date']}
-    email = {'email', item['commit']['author']['email']}
-    value_list = []
-    value_list.append(name)
-    value_list.append(commit_date)
-    value_list.append(email)
-    author_dict.update('author', value_list)  # figure out why it doesn't accept a list or dict as value
-
-print(json.dumps(new_list, indent=2))
-
-
+    commit_info = {}           # will contain info about commiter
+    commit_info.update(item['commit']['author'])
+    big_daddy['sha'] = item['sha']
+    big_daddy['commit_info'] = commit_info
+    new_list.append(big_daddy)
+    with open('github_changelog.json', 'w') as file:      # write each commit data into a file as json
+        json.dump(new_list, file, indent=2)
+    file.close()
 
 # for i in range(len(json_data)):
 #     new_string = json.dumps(json_data, indent=2)
