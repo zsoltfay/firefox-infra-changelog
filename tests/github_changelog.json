@@ -1,242 +1,272 @@
 [
   {
-    "sha": "871bca68b1802d6efe45ee17377fc1a3258d47fd",
+    "sha": "5710c473fc04ff0a7b7b850ba237b9c5df3d1e83",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-08-14T20:35:52Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@mozilla.com",
+      "date": "2018-08-27T17:31:58Z"
+    },
+    "commit_message": "Merge pull request #12 from escapewindow/retry-connectionerror\n\nRetry for ConnectionError during upload."
   },
   {
-    "sha": "3942fbb6ece6002f2ca4e117bd5653a7cfec07e1",
+    "sha": "62debcab19529af096cb7298c9557e8914cae589",
     "commit_info": {
-      "name": "radu.iman",
-      "email": "radu.iman@p6198.svdomain1.softvision.ro",
-      "date": "2018-08-14T15:48:24Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2018-08-27T17:17:03Z"
+    },
+    "commit_message": "3.2.1"
   },
   {
-    "sha": "4bb4e5c9ffe60e9ace1f25f30c1c2c8bf40ddd0f",
+    "sha": "85d4d8ff6c2ec91a4b3f7a00d754d30228b12ece",
     "commit_info": {
-      "name": "radu.iman",
-      "email": "radu.iman@p6198.svdomain1.softvision.ro",
-      "date": "2018-08-14T06:49:25Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2018-08-25T01:41:10Z"
+    },
+    "commit_message": "switch to python 3.7 release; try to fix coveralls"
   },
   {
-    "sha": "7cc3794214ec6584386e9d2d99bbd91285a7d6c2",
+    "sha": "18c2cf87aaea71208ece3fe575bd466b674b3981",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-08-13T20:22:07Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2018-08-25T00:50:23Z"
+    },
+    "commit_message": "Retry for ConnectionError during upload.\n\nThe remote_signfile function is pretty ugly and should be rewritten.\nHowever, I believe we were failing to retry because we're in the except\nblock of the outer try/except, and the inner try/except didn't catch\nConnectionError. RequestException should catch both HTTPError and\nConnecitonError.\n\nFixes https://github.com/mozilla-releng/signingscript/issues/66 ."
   },
   {
-    "sha": "66fb9963967a53f18759243fc4d3cada5d63c9c9",
+    "sha": "8d9f095fbba19d11a22447c84cf99edd1f26f2fa",
     "commit_info": {
-      "name": "radu.iman",
-      "email": "radu.iman@p6198.svdomain1.softvision.ro",
-      "date": "2018-08-12T04:59:52Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@mozilla.com",
+      "date": "2018-05-10T22:50:07Z"
+    },
+    "commit_message": "Merge pull request #11 from escapewindow/py36\n\npy36 support"
   },
   {
-    "sha": "2d41acc174c40fd134e9c69a24c4fb029f00aead",
+    "sha": "d8db4153968d052a39793b302f85f9f02f3322a4",
     "commit_info": {
-      "name": "radu.iman",
-      "email": "radu.iman@p6198.svdomain1.softvision.ro",
-      "date": "2018-08-12T04:52:35Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2018-05-10T22:37:21Z"
+    },
+    "commit_message": "py36 support"
   },
   {
-    "sha": "5c8af0805b00ea3ab63afdadb6d28154f51e802b",
+    "sha": "6960bc8bfa92ff7af467888591fd6fd7347716ff",
     "commit_info": {
-      "name": "radu.iman",
-      "email": "radu.iman@p6198.svdomain1.softvision.ro",
-      "date": "2018-08-12T04:52:35Z"
-    }
+      "name": "Johan Lorenzo",
+      "email": "jlorenzo@mozilla.com",
+      "date": "2018-04-27T16:22:15Z"
+    },
+    "commit_message": "Use .gitignore file from other releng repos\n\nThis allows to ignore .pytest_cache/"
   },
   {
-    "sha": "26fe42136464b7ee3b1259b7ca30e9e76304e77a",
+    "sha": "ad068f50e547931fd74f7149d184aafd41653d25",
     "commit_info": {
-      "name": "radu.iman",
-      "email": "radu.iman@p6198.svdomain1.softvision.ro",
-      "date": "2018-08-09T15:04:11Z"
-    }
+      "name": "Johan Lorenzo",
+      "email": "jlorenzo@mozilla.com",
+      "date": "2018-04-27T16:20:34Z"
+    },
+    "commit_message": "Add tox tests against python 3.6 + split travis jobs per python version"
   },
   {
-    "sha": "6bb4d1b73862ef2cbf22b4eddf03c213e8e6697b",
+    "sha": "6479506341029c2cdd9ba0f374d1d8ad7fffcbc1",
     "commit_info": {
-      "name": "radu.iman",
-      "email": "radu.iman@p6198.svdomain1.softvision.ro",
-      "date": "2018-08-06T15:52:51Z"
-    }
+      "name": "Johan Lorenzo",
+      "email": "jlorenzo@mozilla.com",
+      "date": "2018-04-27T16:17:27Z"
+    },
+    "commit_message": "Fix errors reported by flake8 new rules"
   },
   {
-    "sha": "353aedd62537d65baf204bfc3d1584faaa6120e8",
+    "sha": "ab5cb83446d8eb3e5ccad7d69d336f0f238a78dc",
     "commit_info": {
-      "name": "radu.iman",
-      "email": "radu.iman@p6198.svdomain1.softvision.ro",
-      "date": "2018-08-04T12:50:41Z"
-    }
+      "name": "Johan Lorenzo",
+      "email": "jlorenzo@mozilla.com",
+      "date": "2018-04-24T12:31:29Z"
+    },
+    "commit_message": "3.2.0"
   },
   {
-    "sha": "873ab864b021ba5a96c2cee2240aaa737a90bd5d",
+    "sha": "6398634cdb432e0cc1d43106aeb7d74a366409f1",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-21T02:32:05Z"
-    }
+      "name": "Johan Lorenzo",
+      "email": "jlorenzo@mozilla.com",
+      "date": "2018-04-24T10:24:14Z"
+    },
+    "commit_message": "Bug 1409091 - Add focus-jar support"
   },
   {
-    "sha": "9a660c8d9231af6d0ac28f05f466981b2e9cfde1",
+    "sha": "530ee27052e6459c93004de3bcdfbd844bf49bf0",
     "commit_info": {
-      "name": "Zsolt",
-      "email": "zfay@mozilla.com",
-      "date": "2018-07-21T02:18:42Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@mozilla.com",
+      "date": "2017-08-16T03:27:35Z"
+    },
+    "commit_message": "Merge pull request #9 from escapewindow/fix-sig\n\nstop munging dest now that `output_file` is working"
   },
   {
-    "sha": "db1d9342ee01b147e039c5aa621358b7f1b1957b",
+    "sha": "73788cf63acb877b42f69e27af6929e663c1b4a9",
     "commit_info": {
-      "name": "Bogdan-Cristian Crisan",
-      "email": "bogdan.18rap@gmail.com",
-      "date": "2018-07-16T14:06:59Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-08-16T03:15:19Z"
+    },
+    "commit_message": "3.1.6"
   },
   {
-    "sha": "034acc21a3575afcfe76204d888a3008aff203e8",
+    "sha": "e64dde73e76983536859bea273d0424d1df84112",
     "commit_info": {
-      "name": "Bogdan Crisan",
-      "email": "bogdan.crisan_sv",
-      "date": "2018-07-16T14:03:29Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-08-16T03:25:34Z"
+    },
+    "commit_message": "moar coverage"
   },
   {
-    "sha": "00b055b22e92d1675e323baa4dc38596a8fbb00f",
+    "sha": "1611142bce2f38e780e65f099a412903855651e4",
     "commit_info": {
-      "name": "Bogdan-Cristian Crisan",
-      "email": "bogdan.18rap@gmail.com",
-      "date": "2018-07-16T13:13:31Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-08-16T03:14:30Z"
+    },
+    "commit_message": "stop munging path since we have output_file working"
   },
   {
-    "sha": "562dfd6522211649680214160f3802876a18a16a",
+    "sha": "93c000fd34f7d96a46b9cda01e4a86ab9e531794",
     "commit_info": {
-      "name": "Bogdan Crisan",
-      "email": "bogdan.crisan_sv",
-      "date": "2018-07-16T13:08:05Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@mozilla.com",
+      "date": "2017-08-16T01:05:31Z"
+    },
+    "commit_message": "Merge pull request #8 from escapewindow/fix-output-file\n\nactually use options.output_file"
   },
   {
-    "sha": "24aafb2b304385ea9f1421d0b7e5c0281ede70a8",
+    "sha": "83d33550f9fa373b0bd0cc1ec68632ec0bd43543",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-15T14:48:19Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-08-16T00:53:09Z"
+    },
+    "commit_message": "3.1.5"
   },
   {
-    "sha": "b2fc16a95a4c448424a968497a6845516235c1b7",
+    "sha": "b99660a8b65a123d14af53bb8392f8689d3d23db",
     "commit_info": {
-      "name": "Bogdan Crisan",
-      "email": "bogdancrisan2303@gmail.com",
-      "date": "2018-07-14T16:00:54Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-08-16T00:40:05Z"
+    },
+    "commit_message": "actually use options.output_file"
   },
   {
-    "sha": "575d97c5aa733a299bec705e93af802a292980f5",
+    "sha": "a9d12fed1809343c507761631cbce11539d0021a",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-14T15:32:38Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@mozilla.com",
+      "date": "2017-08-04T21:47:12Z"
+    },
+    "commit_message": "Merge pull request #7 from escapewindow/cdm\n\nbug 1383769 - support widevine in signtool py3"
   },
   {
-    "sha": "dc319ada4e5d03d017250fddd76db3460db8d029",
+    "sha": "b8fdcc3da82eaaa432214f0dee56a693ea232432",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-14T15:24:41Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-08-04T18:56:24Z"
+    },
+    "commit_message": "3.1.4"
   },
   {
-    "sha": "0ece626b09fa758c72cff5c628fe362cab47c76f",
+    "sha": "32da51fa7a07a813fd68731185548dac79ace2d9",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-14T15:14:34Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-08-03T00:26:18Z"
+    },
+    "commit_message": "kill py33 support"
   },
   {
-    "sha": "14ce5b142e0689b901c14f773f85a9c9654b35a7",
+    "sha": "9d026978da6be8137d58b9de0f661ba41ab14bbd",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-14T14:31:00Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-08-03T00:23:11Z"
+    },
+    "commit_message": "get an initial noop test of remote_signfile, for coverage"
   },
   {
-    "sha": "1e65fb65b8d726804cd14da6503778c8086d37d6",
+    "sha": "ed07ee82153e65021f9d5ac1259ce09651f45ceb",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-13T06:15:13Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-07-31T21:01:00Z"
+    },
+    "commit_message": "support widevine"
   },
   {
-    "sha": "7c68e43aa5ca63c1f19c5bea61b03644c02f94be",
+    "sha": "b59a62f7ceae4f6216405302ef38a9a79994966d",
     "commit_info": {
-      "name": "Akhliskun",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-13T03:11:42Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@escapewindow.com",
+      "date": "2017-07-13T20:48:29Z"
+    },
+    "commit_message": "update changelog for 3.1.3"
   },
   {
-    "sha": "50631ab12ddab172a2ae3b969bcd1a07c55b79cd",
+    "sha": "44c59472964752eecae73f50aaf2201458989bc5",
     "commit_info": {
-      "name": "Akhliskun",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-13T03:08:55Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@mozilla.com",
+      "date": "2017-07-13T20:07:34Z"
+    },
+    "commit_message": "Merge pull request #4 from catlee/master\n\nReimplement signature check without pefile"
   },
   {
-    "sha": "7ed0b935dda3a9047d797136088b1ce728cacabf",
+    "sha": "bd4bd50c765b385fb637a3b29581e6e7568ea7e7",
     "commit_info": {
-      "name": "Akhliskun",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-13T03:07:15Z"
-    }
+      "name": "Chris AtLee",
+      "email": "catlee@mozilla.com",
+      "date": "2017-07-13T19:35:22Z"
+    },
+    "commit_message": "Merge branch 'master' of https://github.com/mozilla-releng/signtool"
   },
   {
-    "sha": "5da90da0fd8876e85773e327d821ec964656d379",
+    "sha": "99c8f406ed2f3c930495da6194102b827fdec024",
     "commit_info": {
-      "name": "Akhliskun",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-13T03:07:15Z"
-    }
+      "name": "Johan Lorenzo",
+      "email": "jlorenzo@mozilla.com",
+      "date": "2017-07-13T16:19:49Z"
+    },
+    "commit_message": "3.1.2"
   },
   {
-    "sha": "b343a16f7267bd2abb758063df78c5a812853119",
+    "sha": "e822a17c677ffcb6ff302ff0d18b0a29ab41045d",
     "commit_info": {
-      "name": "Akhliskun",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-13T03:05:27Z"
-    }
+      "name": "Aki Sasaki",
+      "email": "aki@mozilla.com",
+      "date": "2017-07-13T16:13:29Z"
+    },
+    "commit_message": "Merge pull request #5 from JohanLorenzo/add-more-formats\n\nBug 1380536 - update py3 signtool with sha384 mar + sha2signcodestub"
   },
   {
-    "sha": "b1270c0bff78a9229f65a8ed921b3590b2c650ac",
+    "sha": "c3fd69f690484080389bcdf8880a175f9db66a2c",
     "commit_info": {
-      "name": "Akhliskun",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-13T00:48:34Z"
-    }
+      "name": "Johan Lorenzo",
+      "email": "jlorenzo@mozilla.com",
+      "date": "2017-07-13T16:01:30Z"
+    },
+    "commit_message": "3.1.1"
   },
   {
-    "sha": "d851a459db0b0ae562d8a22dcf8d8df2365b689c",
+    "sha": "4a98b04ffec0aa597111b2967e33f277be18569c",
     "commit_info": {
-      "name": "Danut Labici",
-      "email": "labicidanut@gmail.com",
-      "date": "2018-07-13T00:15:13Z"
-    }
+      "name": "Johan Lorenzo",
+      "email": "jlorenzo@mozilla.com",
+      "date": "2017-07-13T13:13:21Z"
+    },
+    "commit_message": "Bug 1380536 - update py3 signtool with sha384 mar + sha2signcodestub"
   }
 ]

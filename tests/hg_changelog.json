@@ -1,0 +1,122 @@
+[
+  {
+    "sha": "2a7133445b5e3ddb25955154458d4d40e2c41e75",
+    "commit_info": "No bug - Tagging c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b with FENNEC_62_0_3_RELEASE a=release CLOSED TREE",
+    "branch": "default",
+    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+  },
+  {
+    "sha": "c2d87c8863817cc3807d5719c0deb60a116478d8",
+    "commit_info": "Automatic version bump CLOSED TREE NO BUG a=release",
+    "branch": "default",
+    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+  },
+  {
+    "sha": "d0db021ad36b9a59080b2f765807994e02447dfc",
+    "commit_info": "No bug - Tagging c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b with FIREFOX_62_0_3_RELEASE a=release CLOSED TREE",
+    "branch": "default",
+    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+  },
+  {
+    "sha": "33bec02bb81f303b8e3d22586b9e67690e939dbb",
+    "commit_info": "Merge GECKOVIEW_62_RELBRANCH with default. a=merge",
+    "branch": "GECKOVIEW_62_RELBRANCH",
+    "user": "Ryan VanderMeulen <ryanvm@gmail.com>"
+  },
+  {
+    "sha": "582b268dcabc2be280867a4fcfc7de489b66e747",
+    "commit_info": "Bug 1495452 - Don't crash when there is no vibrate permission; r=me a=geckoview62\n\nCatch exceptions when we don't have the vibrate permission.",
+    "branch": "GECKOVIEW_62_RELBRANCH",
+    "user": "Jim Chen <nchen@mozilla.com>"
+  },
+  {
+    "sha": "15f1fe51a2b650993d5ae1009fbd52ccd1888334",
+    "commit_info": "No bug - Tagging c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b with FIREFOX_62_0_3_BUILD1 a=release CLOSED TREE",
+    "branch": "default",
+    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+  },
+  {
+    "sha": "fd95782ea141b9a62723c7d195158f1558b8b2b6",
+    "commit_info": "No bug - Tagging c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b with FENNEC_62_0_3_BUILD1 a=release CLOSED TREE",
+    "branch": "default",
+    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+  },
+  {
+    "sha": "c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b",
+    "commit_info": "Bug 1487255 - Update search blacklist. r=mikedeboer, a=jcristau",
+    "branch": "default",
+    "user": "Michael Kaply <mozilla@kaply.com>"
+  },
+  {
+    "sha": "5f9fa0298fc3dbcb7e2ec9a2d86ef6a2e02b9917",
+    "commit_info": "Bug 1491186 - Don't sanity check scopes for kind=task. r=bhearsum, a=release\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6774",
+    "branch": "default",
+    "user": "Dustin J. Mitchell <dustin@mozilla.com>"
+  },
+  {
+    "sha": "dc99e844c2af61e5062fe327375c615f4b14bd4b",
+    "commit_info": "Bug 1491940 - [Mac] Allow Adobe DRM content to play with the Mac Flash sandbox. r=Alex_Gaynor, a=jcristau\n\nAdd an whitelisted write-access path regex to the Flash plugin sandbox.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6679",
+    "branch": "default",
+    "user": "Haik Aftandilian <haftandilian@mozilla.com>"
+  },
+  {
+    "sha": "dc688e0c970278799f4d0ca9bde78545380e4110",
+    "commit_info": "Bug 1493903 - Don't inline push with more than 1 argument. r=tcampbell a=dveditz",
+    "branch": "default",
+    "user": "Jan de Mooij <jdemooij@mozilla.com>"
+  },
+  {
+    "sha": "d596c94e62cd99b7efa048cb8016368047aaa079",
+    "commit_info": "Bug 1493900.  r=bhackett,sunfish a=dveditz",
+    "branch": "default",
+    "user": "Jan de Mooij <jdemooij@mozilla.com>"
+  },
+  {
+    "sha": "d7a52857cd862b4e2f8305baddc119f4e9a47146",
+    "commit_info": "Bug 1489785: Remove a workaround for gcc, introduced in bug 678607, that is no longer needed and that causes hangs in modal dialogs on macOS 10.14. r=mstange, a=jcristau",
+    "branch": "default",
+    "user": "Stephen A Pohl <spohl.mozilla.bugs@gmail.com>"
+  },
+  {
+    "sha": "97c33560b0e28c6744ab83d63493fe41ad4ae8ff",
+    "commit_info": "Bug 1491094 - Don't require ACCESS_WIFI_STATE for GeckoView r=droeh a=me\n\nFennec will continue to require this. While we're here, also make 'touchscreen' feature optional.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D7125\n",
+    "branch": "GECKOVIEW_62_RELBRANCH",
+    "user": "James Willcox <snorp@snorp.net>"
+  },
+  {
+    "sha": "7f2d67c5d804f70414782f72d82ea7db15455d9a",
+    "commit_info": "Bug 1494739 - Remove GV vibrate permission; r=me a=geckoview62\n\nRmove the VIBRATE permission. GV actually doesn't support the vibration\nAPI at the moment, so the permission is unused anyways.",
+    "branch": "GECKOVIEW_62_RELBRANCH",
+    "user": "Jim Chen <nchen@mozilla.com>"
+  },
+  {
+    "sha": "691b21e74a5179f546649c5d0f8b52c82a390790",
+    "commit_info": "Bug 1486552 - geckoview: Add GeckoRuntimeSettings.setLocale method. r=snorp, a=ritu\n\nDifferential Revision: https://phabricator.services.mozilla.com/D4794",
+    "branch": "GECKOVIEW_62_RELBRANCH",
+    "user": "Matt Brubeck <mbrubeck@mozilla.com>"
+  },
+  {
+    "sha": "49b9303f687d8f41b80739bdb9657bda866a1ce6",
+    "commit_info": "Merge GECKOVIEW_62_RELBRANCH with default. a=merge",
+    "branch": "GECKOVIEW_62_RELBRANCH",
+    "user": "Ryan VanderMeulen <ryanvm@gmail.com>"
+  },
+  {
+    "sha": "aa7b44bb25aa6c67b91f5dd93fee2116f4c0e659",
+    "commit_info": "Bug 1491621 - use different priorities for different kinds of decisions r=tomprince a=tomprince\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6193",
+    "branch": "default",
+    "user": "Dustin J. Mitchell <dustin@mozilla.com>"
+  },
+  {
+    "sha": "908e8968c5c7fb731c9438f944fb9594e1f3ff86",
+    "commit_info": "Bug 1469610: [taskgraph] Use `action.taskGroupId` to set `ACTION_TASK_GROUP_ID`; r=dustin\n\nThis makes it consistent with everywhere else in `.taskcluster.yml` where we\nrefer to the action task group.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D1707",
+    "branch": "default",
+    "user": "Tom Prince <mozilla@hocat.ca>"
+  },
+  {
+    "sha": "22d8343c70a09ca8c4c8f592e01ec26269319b2d",
+    "commit_info": "Bug 1491186: sanity check action scopes r=aki,tomprince\n\nThis provides a modicum of assurance that, for example, a non-generic action is\nnot being run with generic scopes. While scopes would prevent any serious\ndamage from such an action, this provides an extra layer of security to prevent\nsuch abuse.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6271",
+    "branch": "default",
+    "user": "Dustin J. Mitchell <dustin@mozilla.com>"
+  }
+]
