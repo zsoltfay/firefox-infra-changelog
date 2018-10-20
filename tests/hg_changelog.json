@@ -1,122 +1,1344 @@
-[
-  {
-    "sha": "2a7133445b5e3ddb25955154458d4d40e2c41e75",
-    "commit_info": "No bug - Tagging c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b with FENNEC_62_0_3_RELEASE a=release CLOSED TREE",
-    "branch": "default",
-    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+{
+  "Version-Control-Tools": {
+    "0": {
+      "sha": "5d8af4a26ba016518f7958e3b003cf95a5d89f68",
+      "branch": "default",
+      "author_info": "Tooru Fujisawa <arai_a@mac.com>",
+      "commit_message": "docs: Add warning in authentication section, and move the section later (Bug 1496658) r=glob"
+    },
+    "1": {
+      "sha": "d54b06ec9d16ccc29e19b0b03cb09b740fdfe9af",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "vcsreplicator: create a `repofilter` decorator and apply to message handlers (Bug 1491373) r=gps\n\nThis commit creates a repository filtering decorator which wraps\nthe message handler function to check if a message corresponds\nto a repo which is being filtered out on this instance. A\ndecorator is used to separate the filtering logic out from the\nmessage handler logic, while allowing the filter logic to be defined\nin a single place.\n\nTo test this functionality, we create a new `filteredconsumer` which\nhas a set of replication rules defined in it's configuration file.\nWe also add some output to `test-corrupt-repo-replication.t` to\naccount for the extra layer on the failure stack trace created by\nthe `repofilter` wrapper.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6917"
+    },
+    "2": {
+      "sha": "779937c9fb3189aaaf12dbbb982a2bdba8ada3a8",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "vcsreplicator: apply repo filtering to hgweb bootstrap procedure (Bug 1491373) r=gps\n\nThis commit makes the bootstrap procedure respect the\nrepo filtering rules set in the hgweb replicator config\nfile. The hgweb procedure receives the input object\nfrom the hgssh procedure and applies the aggregate filter\nfunction to the set of repos specified in the hgweb config\nfile. Then the process continues as normal, except when a\nmessage is being processed for a repo which has been removed\nfrom the set of repos to replicate, it is ignored and the\nprocess continues. Immediately after removing filtered repos\nfrom the set of repos to be replicated, we also log which\nrepos were filtered out and specify the offending rule for\ndebugging purposes.\n\nThere are a few advantages to this implementation. The hgssh\nstep is unaware of the filtering rules applied to the individual\nhgweb instances. This means we could set up separate instances\nto be dedicated to different repositories in the future and\nbootstrap all of them with the result of a single hgssh bootstrap\nrun. We also keep the hgssh and hgweb roles separate in terms of\nshared data since we won't need to pass the hgweb replication config\nto the hgssh instances for filtering.\n\nA disadvantage to this approach is that we will spend some time\ncollecting and acknowledging Kafka messages for repos we wish to\nreplicate. If we did pass hgweb filter rules to the hgssh instance,\nwe could avoid aggregating the messages altogether and only produce\nbootstrap messages for repos we wish to replicate. This would have\na disadvantage in being need to run multiple times if we wish\nto bootstrap multiple hgweb heads with different replication rules\nat the same time.\n\nTo test this feature, we add a `set-config-option` file to the\nAnsible docker-hgweb role, which is essentially the same as\ndocker-hgssh's `set-hgrc-option`, except it takes a full path\nto the file and acts on any valid `.ini` file.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6916"
+    },
+    "3": {
+      "sha": "45897525df27817a680873fb8faec5f2b55b13e8",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "vcsreplicator: add a `filter` function to the `Config` class (Bug 1491373) r=gps\n\nThis commit adds a function which applies filter rules to a given\nrepo name (assumed to be in wire path format) and returns a\n`RepoFilterResult` with a yes/no boolean indicating if the\nrepo should be filtered or not, and a string name value\nwhich is the alias of the rule which did/did not filter\nthe repo. The rules are applied in the following order\n\n    0. If there are no filters defined, pass.\n    1. If repo is explicitly included, pass.\n    2. If repo is explicitly excluded, fail.\n    3. If repo matches an include regex and\n       does not match an exclude regex, pass.\n    4. Catch-all fail.\n\nUsing this order will allow us to set general pattern\nmatching rules to include/exclude repos, but also bypass\nthose rules for specific repositories as we deem necessary.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6914"
+    },
+    "4": {
+      "sha": "77152e3998ad08f374a9745f491a9cab9fd835d6",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "vcsreplicator: add logic to parse `replicationrules` config section (Bug 1491373) r=gps\n\nThis commit adds logic to the `config.Config` constructor for\nparsing a config section with rules for filtering repositories\nout of the set of repositories to replicate. The section must\nbe named `replicationrules` and each entry takes the form\n`behaviour.name = syntax:rule`. \"Behaviour\" is one of\n{include, exclude}, indicating if the rule will force inclusion\nor exclusion of any matching repos. \"Name\" is an alias given\nto the rule, which will be used for debugging and logging\nduring filtering (something like \"repo X filtered by rule Y\").\n\"Syntax\" is the type of rule the \"rule\" string will be applied\nto. The current available \"syntax\" values are \"re\" for regular\nexpression and \"path\" for explicit (ie explicitly include repo X).\nAn example section would look like:\n\n    [replicationrules]\n    exclude.user = re:\\{moz\\}/user.*\n    include.releases = re:\\{moz\\}/releases/.*\n    include.myuserrepo = path:{moz}/users/cosheehan_mozilla.com/vct\n    exclude.beta = path:{moz}/releases/mozilla-beta\n\nFollow up commits will specify the ordering of rule checking and\nhow the replication processes will use these filters.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6913"
+    },
+    "5": {
+      "sha": "2947d7ab1a4c0969ea4b78e298a5e724dad3f6a9",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "hghooks: update Zibi Braniecki's reviewer token to Phabricator username (Bug 1496087) r=gps\n\nZibi's MozReview username was \"gandalf\", but he switched to\n\"zbraniecki\" when registering for Phabricator. The hook will\nfail despite his r+ review due to looking for the old username.\nThis commit updates the username to reflect the change.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D7624"
+    },
+    "6": {
+      "sha": "416ecd718f4a20edb3da74a4f8865f9046ad9031",
+      "branch": "default",
+      "author_info": "Wes Kocher <wkocher@mozilla.com>",
+      "commit_message": "docs: fix some typos in extensions.rst"
+    },
+    "7": {
+      "sha": "32ee24b27a6a8b15d71aa4d5b8449c3a09302512",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "testing: install Mercurial 4.7.2 in test environment"
+    },
+    "8": {
+      "sha": "fa4574b801524a65cb40810a2cc03e4f43db4b26",
+      "branch": "default",
+      "author_info": "Gregory Szorc <gps@mozilla.com>",
+      "commit_message": "ansible/hg-ssh: tweak pushdataaggregator service restart settings (bug 1492116); r=sheehan\n\nCurrently, the service is hitting its burst start limits apparently\ndue to Kafka intermittently being in a bad state. The service is put\nin a failed state and stops restarting.\n\nThis patch does 2 things to mitigate:\n\n1) Increases the sleep between restarts from 100ms to 3. If Kafka is\n   in a bad state, this will give Kafka more time to recover and\n   increase the chances of the restart \"sticking.\"\n\n2) Raises the start limit limits. We now allow up to 20 failures in a\n   300s period before the start limiting kicks in. Combined with a 3s\n   restart backoff, systemd will attempt restarts for at least 60s\n   after initial failure before giving up. This seems like a reasonable\n   amount of time to retry before giving up.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6818"
+    },
+    "9": {
+      "sha": "2e670681dbd95445e77ef63f4bbc02e13cf640f5",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "pushlog: mark as compatible with Mercurial 4.7 (Bug 1485878) r=gps\n\nThe final failing test for pushlog was failing due to a dependency\non the `hgmo` extension. Now that `hgmo` is compatible with 4.7,\nwe can mark this extension compatible as well.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6740"
+    },
+    "10": {
+      "sha": "7ca5514f709cde7735bff5882d49ea574a70173f",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "hgmo: mark as compatible with Mercurial 4.7 (Bug 1485874) r=gps\n\nAfter applying the series, we are compatible with Mercurial\n4.7 on this extension.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6739"
+    },
+    "11": {
+      "sha": "8a320b3c78e75e20ff739b06b085ace589b0e3ed",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "hgmo: send archives info to template layer in `repoinfo` webcommand (Bug 1485874) r=gps\n\nThe `repoinfo` HTML template needs the `archives` field to be\nset to properly render the navbar on the page, yet we aren't\nsending anything to the templater to display. Under Mercurial\n4.7 this causes a 500 to be thrown, so let's send this now.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6738"
+    },
+    "12": {
+      "sha": "090cffc7f71c751865ec5d547e81b7c42333f5df",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "hgmo: create bugs, reviewers, backouts fields with generators (Bug 1485874) r=gps\n\nThis lets us pass them to the template layer as a `mappinggenerator`\nand brings us closer to 4.7 compatibility.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6737"
+    },
+    "13": {
+      "sha": "51c6ff20afaca8227d2b7cf41a9184d2eca3f9a5",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "hgmo: add `automationrelevance` JSON template (Bug 1485874) r=gps\n\nThis commit adds an `automationrelevance` template to the `json`\ntemplate, allowing us to send the output of the `automationrelevance`\nwebcommand through the template layer instead of streaming\nJSON directly. Due to this change, output from the raw\nHTTP endpoint is no longer nicely indented. We now send the\nresponse to a body file and then use `json.tool` to format\nthe output.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6736"
+    },
+    "14": {
+      "sha": "9ebceb9a4da193414608ecc82f903293e43f0df0",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "hgmo: remove unused variable (Bug 1485874) r=gps\n\nLeftover from removing pre-4.6 compatibility code.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6735"
+    },
+    "15": {
+      "sha": "a772b50b7dd495060de8e50aeb7b18890d030498",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "hgmo: get context using `scmutil` functions (Bug 1485874) r=gps\n\nWe use the `repo[x]` syntax in several places throughout the\nhgmo extension. Using that syntax for certain use cases is\nno longer supported. The recommended methods to use are found\nin the `scmutil` module.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6734"
+    },
+    "16": {
+      "sha": "01e4a82aa1471eb3dd7b50a08fa5ec1df0aac52b",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "hgmo: wrap `csets` field as a `templateutil.mappinglist` (Bug 1485874) r=gps\n\nI decided to just wrap the end list instead of making this a\ngenerator as the command is legacy and it was faster.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6733"
+    },
+    "17": {
+      "sha": "e50b99efbc2e95d226f00fc6218166c2c9dc5d5d",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "zookeeper: mirror systemd config in test suite (Bug 1492453); r=gps\n\nIn a previous commit we added GC logging to the Zookeeper processes\nby setting environment variables in the systemd unit for those\nprocesses. It slipped my mind that we don't use systemd in\ndocker, and need to update in a second location for parity in\nthe test suite. This commit should fix that issue.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6447"
+    },
+    "18": {
+      "sha": "278db23cf565a92b182fce23a1c344e387d00a96",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "kafka: modify heap memory allocation config (Bug 1492453); r=gps\n\nThis commit adds the `KAFKA_HEAP_OPTS` environment variable to\nthe `kafka` systemd unit. Setting this variable will override\nthe default heap allocation settings from \"-Xmx1G -Xms1G\"\nto \"-Xmx512m\". Essentially, this will do two things. First,\nit lowers the maximum heap allocation pool from 1GB to\n512MB. We are doing this in the hope that we can trigger\nGC on the Kafka processes sooner than our current deployment,\nwhich should make GC take less time as there will be less\nstale memory to collect. Second, we are removing the\ninitial memory allocation setting altogether. This should force\nKafka to only use as much memory as it needs (it rarely requires\n1GB, especially not at program startup) and should provide a small\nperformance boost in the test suite.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6446"
+    },
+    "19": {
+      "sha": "ae9466c50359038889b1dcf9615ac2d53e5a40f8",
+      "branch": "default",
+      "author_info": "Connor Sheehan <sheehan@mozilla.com>",
+      "commit_message": "unifyrepo: remove call to `bm.clear()` (Bug 1485882) r=gps\n\nIn Mercurial 4.7, the `bmstore` class is no long a subclass\nof dict, making the call to `clear()` invalid. We can achieve the\nsame result by setting the value of any keys we wish to delete to\n`None`, under both 4.6 and 4.7.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D4696"
+    }
   },
-  {
-    "sha": "c2d87c8863817cc3807d5719c0deb60a116478d8",
-    "commit_info": "Automatic version bump CLOSED TREE NO BUG a=release",
-    "branch": "default",
-    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+  "Mozilla-Build": {
+    "0": {
+      "sha": "6d35f442f9b9845bded64454ef494245ee1ba3bf",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1477020 - Bump the version 3.3pre1."
+    },
+    "1": {
+      "sha": "b6d9557bd034162ab94118eed68db4706ef8e8ac",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Added tag MOZILLABUILD_3_2_0_RELEASE for changeset ea5c838532c6"
+    },
+    "2": {
+      "sha": "ea5c838532c6231933d63ecbfcfb4c649a156f55",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449716 - Bump the version to 3.2."
+    },
+    "3": {
+      "sha": "bcaf5ce9bba0e6c5011ad55c010fbf0a794f260a",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449720 - Update 7-Zip to version 18.05."
+    },
+    "4": {
+      "sha": "1fd714f4ea2a520111e5815724b2e59aa9faacad",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1458358 - Update Python2 to version 2.7.15."
+    },
+    "5": {
+      "sha": "9db5787dc30d4e4a8de806d512728356a761aac9",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449724 - Update watchman to upstream revision ee2cd14e."
+    },
+    "6": {
+      "sha": "99700990f557688acabeb043f97a6bc47820280f",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449718 - Update the bundled sqlite3 DLL to 3.23.1."
+    },
+    "7": {
+      "sha": "eac9b85c3454b8de40beaeb88c8094192c9adbfd",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449716 - Bump the version 3.2pre2."
+    },
+    "8": {
+      "sha": "9b032734525d3831e6724f2a9f093948e0b0952c",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449718 - Update the bundled sqlite3 DLL to 3.23.0."
+    },
+    "9": {
+      "sha": "bbf2dd4c5d138cae45ca6d40f5f5e662a012c28e",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449724 - Update watchman to upstream revision e6350f9."
+    },
+    "10": {
+      "sha": "bfea4664d5cba4d772ec77a5995dc979177da31e",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449917 - Add some directories to the cleanup list in the installer."
+    },
+    "11": {
+      "sha": "2f24d60f24aa142c3169d1652a086303b5464c7a",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449917 - Copy nsinstall to the bin directory during packaging."
+    },
+    "12": {
+      "sha": "6b9b63e6ada0628c50cf53224593cdee2249ee23",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449917 - Copy UPX to the bin directory during packaging."
+    },
+    "13": {
+      "sha": "464bad85c29f14e6cb036a41dfbdadea882ab448",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449917 - Copy info-zip to the bin directory during packaging."
+    },
+    "14": {
+      "sha": "498b8a52d4382b61ba3a91989f1c81b002e64e51",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449917 - Copy watchman to the bin directory during packaging."
+    },
+    "15": {
+      "sha": "3e01cecdcb5e04954278ec994da5ff8847181580",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449917 - Copy wget to the bin directory during packaging."
+    },
+    "16": {
+      "sha": "532b37105614b9b3af3b9c17637f363253c5d42a",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449917 - Copy 7-Zip to the bin directory during packaging."
+    },
+    "17": {
+      "sha": "8fab5a6476fb8985dc29b3d5f40b19b8a7b1e6de",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449917 - Copy mozmake to the bin directory during packaging."
+    },
+    "18": {
+      "sha": "ebfaf68228493f89fa27388282db10380ac3b086",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1449917 - Extract yasm to the bin directory during packaging."
+    },
+    "19": {
+      "sha": "e7d24be8bfda272741cf1c46714a3dc1895b7155",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1439442 - Copy vswhere to the bin directory during packaging."
+    }
   },
-  {
-    "sha": "d0db021ad36b9a59080b2f765807994e02447dfc",
-    "commit_info": "No bug - Tagging c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b with FIREFOX_62_0_3_RELEASE a=release CLOSED TREE",
-    "branch": "default",
-    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+  "Tooltool": {
+    "0": {
+      "sha": "482c0f6537d47f7cbf1326066ecd1d3efbbd53a7",
+      "branch": "default",
+      "author_info": "Aki Sasaki <asasaki@mozilla.com>",
+      "commit_message": "no bug - add buildfarm/utils/README.txt to note nss usage"
+    },
+    "1": {
+      "sha": "b8d7c263dfc30d61f5181da72a0ec0d2c55950b4",
+      "branch": "default",
+      "author_info": "Aki Sasaki <asasaki@mozilla.com>",
+      "commit_message": "oops, move to the right location"
+    },
+    "2": {
+      "sha": "2e92d95082d1509848522ff289d87d51ec195729",
+      "branch": "default",
+      "author_info": "Aki Sasaki <asasaki@mozilla.com>",
+      "commit_message": "restore win32_util.py to fix retry.py on windows"
+    },
+    "3": {
+      "sha": "4f4834b9c6f75e5c0ad8dbb98f19613993cd6363",
+      "branch": "default",
+      "author_info": "Nick Thomas <nthomas@mozilla.com>",
+      "commit_message": "nobug - restore unix_util.py for update verify r=bustate"
+    },
+    "4": {
+      "sha": "400ef0a557ea5b043b5f96a74b8665c12cc4a9c8",
+      "branch": "default",
+      "author_info": "Aki Sasaki <asasaki@mozilla.com>",
+      "commit_message": "nobug - restore retry.py r=bustage"
+    },
+    "5": {
+      "sha": "d5289f1ceaaac0d01769548bd88ffe0ae4a8f200",
+      "branch": "default",
+      "author_info": "Ben Hearsum <bhearsum@mozilla.com>",
+      "commit_message": "nobug: remove a bunch of code that is most likely dead. r=tomprince"
+    },
+    "6": {
+      "sha": "d8cd2c0aba0918256efe9fe10d37b9d53c051f8d",
+      "branch": "default",
+      "author_info": "Tom Prince <mozilla@hocat.ca>",
+      "commit_message": "Bug 1490119: Actually import certificates."
+    },
+    "7": {
+      "sha": "b04a81e9c98cdd15f09ad90a8b5d44eed555ba73",
+      "branch": "default",
+      "author_info": "Ben Hearsum <bhearsum@mozilla.com>",
+      "commit_message": "bug 1490119: support mar cert replacement in update verify. r=nthomas"
+    },
+    "8": {
+      "sha": "992b368f8c05ca665da1110866c2d1578df71cac",
+      "branch": "default",
+      "author_info": "Johan Lorenzo <jlorenzo@mozilla.com>",
+      "commit_message": "Bug 1489057 - trigger_action didn't detect fennec_ship_rc graph when shipping Fennec RC for real r=rail\n\ntrigger_action didn't detect fennec_ship_rc graph when shipping Fennec RC for real\n\nDifferential Revision: https://phabricator.services.mozilla.com/D5122"
+    },
+    "9": {
+      "sha": "d76acbc873de5597234161f8a905a3a6c9efc353",
+      "branch": "default",
+      "author_info": "Tom Prince <mozilla@hocat.ca>",
+      "commit_message": "Bug 1488511: [final-verification] Check content-length case insensitively; r=jlorenzo\n\nDifferential Revision: https://phabricator.services.mozilla.com/D4959"
+    },
+    "10": {
+      "sha": "8b3d4005593e3b6a8174a9e0b9b71c9e494d5a3f",
+      "branch": "default",
+      "author_info": "Tom Prince <mozilla@hocat.ca>",
+      "commit_message": "Bug 1481121: Always add `-dummy` to balrog release blobs, even if a suffix is specified; r=bhearsum\n\nDifferential Revision: https://phabricator.services.mozilla.com/D4701"
+    },
+    "11": {
+      "sha": "98d1e5b4035a399737ff06e0a76f6cae369696b3",
+      "branch": "default",
+      "author_info": "Johan Lorenzo <jlorenzo@mozilla.com>",
+      "commit_message": "Bug 1478935 - Prevent releaseduty from starting the ship graph when the push one hasn't been kicked off r=aki,rail\n\nPrevent releaseduty from starting the ship graph when the push one hasn't been kicked off\n\nDifferential Revision: https://phabricator.services.mozilla.com/D2513"
+    },
+    "12": {
+      "sha": "c70700db492bf81c9f5551d9cfdfea851fb7e2ce",
+      "branch": "default",
+      "author_info": "Christian Holler <choller@mozilla.com>",
+      "commit_message": "Bug 1478312 - Fix platform string for Windows ASan Nightly Reporter builds. r=catlee"
+    },
+    "13": {
+      "sha": "ff856732f95b64c32b1adc1512876fb6177bbfce",
+      "branch": "default",
+      "author_info": "Aki Sasaki <asasaki@mozilla.com>",
+      "commit_message": "bug 1472860 - remove old cert due to bustage. r=me"
+    },
+    "14": {
+      "sha": "57f463082cdb1d4fd6c625b0fe928433d58e3ef3",
+      "branch": "default",
+      "author_info": "Aki Sasaki <asasaki@mozilla.com>",
+      "commit_message": "bug 1472860 - update signing server ssl certs. r=catlee"
+    },
+    "15": {
+      "sha": "cadaac874297ba681839c3840d7b265b5ed45c99",
+      "branch": "default",
+      "author_info": "Christian Holler <choller@mozilla.com>",
+      "commit_message": "Bug 1473259 - Add win64-asan-reporter for ASan Nightly updates. r=catlee"
+    },
+    "16": {
+      "sha": "1b273d683d4e21bf603c274716e521694af72610",
+      "branch": "default",
+      "author_info": "Johan Lorenzo <jlorenzo@mozilla.com>",
+      "commit_message": "Bug 1473288 - Retry fetch {action,decision} task r=rail\n\nRetry fetch {action,decision} task\n\nDifferential Revision: https://phabricator.services.mozilla.com/D2003"
+    },
+    "17": {
+      "sha": "6e5999e94aae671c500b92260056238ee931db20",
+      "branch": "default",
+      "author_info": "tbirdbld",
+      "commit_message": "Added tag THUNDERBIRD_52_9_1_RELEASE_RUNTIME, THUNDERBIRD_52_9_1_BUILD3_RUNTIME for changeset ad9a52332ebe"
+    },
+    "18": {
+      "sha": "ad9a52332ebe0879269a4b6f1da7cf248e231d50",
+      "branch": "default",
+      "author_info": "tbirdbld",
+      "commit_message": "Automated configuration bump: update configs for Thunderbird 52.9.1 build 3 on release"
+    },
+    "19": {
+      "sha": "a10a78159efa709821ff0224c97e863bcc36fcbc",
+      "branch": "default",
+      "author_info": "ffxbld",
+      "commit_message": "Added tag THUNDERBIRD_52_9_1_BUILD3, THUNDERBIRD_52_9_1_RELEASE for changeset 4b70904d8e2b"
+    }
   },
-  {
-    "sha": "33bec02bb81f303b8e3d22586b9e67690e939dbb",
-    "commit_info": "Merge GECKOVIEW_62_RELBRANCH with default. a=merge",
-    "branch": "GECKOVIEW_62_RELBRANCH",
-    "user": "Ryan VanderMeulen <ryanvm@gmail.com>"
+  "Mozilla-Central": {
+    "0": {
+      "sha": "fb6f3dea0beaa9e17e58f8967ccfcf604f4d95fb",
+      "branch": "default",
+      "author_info": "Andrew Swan <aswan@mozilla.com>",
+      "commit_message": "Bug 1498420 Convert talos tart extension to a webextension r=mconley a=Aryx\n\nThe biggest change here is that the tart.html page that drives the\ntest (not to be confused with the pages loaded in new tabs during the\ntest) moves from a chrome: page inside the extension to a regular http:\npage.  That also required revamping the communication between tart.html\nand the extension.  The rest of the changes are just the packaging and\nstartup mechanics for the test extension.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8807"
+    },
+    "1": {
+      "sha": "345543cd804524463207a7c674e82e21e7dcffba",
+      "branch": "default",
+      "author_info": "Sebastian Hengst <archaeopteryx@coole-files.de>",
+      "commit_message": "Bug 1486741 - Enable ESLint rule comma-dangle for all of mozilla-central: fix eslint failure after merge. a=eslint-fix"
+    },
+    "2": {
+      "sha": "f88ebf2720c875520d2de1cf4104a3b550c73ad8",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Merge mozilla-inbound to mozilla-central. a=merge"
+    },
+    "3": {
+      "sha": "f3bb47ac5f014dd6d8cc0747e0f57f76858d04c2",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Backed out changeset 3133f6ab1bd8 (bug 1498420) for causing merge conflicts with bug 1486741"
+    },
+    "4": {
+      "sha": "4d6e6d7e58baedeb32896f24d569bad60672afbc",
+      "branch": "default",
+      "author_info": "Gabriel Luong <gabriel.luong@gmail.com>",
+      "commit_message": "Bug 1500469 - Don't require /shared/css/properties-db.js in the inspector client. r=mtigley"
+    },
+    "5": {
+      "sha": "3133f6ab1bd8ea2aa261f8e9024ab3fb8eb0ddcb",
+      "branch": "default",
+      "author_info": "Andrew Swan <aswan@mozilla.com>",
+      "commit_message": "Bug 1498420 Convert talos tart extension to a webextension r=mconley\n\nThe biggest change here is that the tart.html page that drives the\ntest (not to be confused with the pages loaded in new tabs during the\ntest) moves from a chrome: page inside the extension to a regular http:\npage.  That also required revamping the communication between tart.html\nand the extension.  The rest of the changes are just the packaging and\nstartup mechanics for the test extension.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8807"
+    },
+    "6": {
+      "sha": "3f193025450a04021ca5709deb7f1e94c7add510",
+      "branch": "default",
+      "author_info": "Natalia Csoregi <ncsoregi@mozilla.com>",
+      "commit_message": "Bug 1426568 - Fix Ahem issue and very frequent wbr-element unexpected passes. r=RyanVM"
+    },
+    "7": {
+      "sha": "1ca458791c2739f9c6bc7abe2b0672ed3518e9a3",
+      "branch": "default",
+      "author_info": "Jed Davis <jld@mozilla.com>",
+      "commit_message": "Bug 1498765 - Clean up ContentParent::KillHard handling.  r=mccr8\n\nMessageChannel shouldn't need to care about PContent-specific details."
+    },
+    "8": {
+      "sha": "a254c5207ba052f56527ea28d3dad50e0182cd33",
+      "branch": "default",
+      "author_info": "Florian Qu\u00e8ze <florian@queze.net>",
+      "commit_message": "Bug 1500482 - Use performance.svg as the about:performance favicon, r=felipe."
+    },
+    "9": {
+      "sha": "040f0e314fcf3251acc978a87a9597c8f25983d1",
+      "branch": "default",
+      "author_info": "Brian Hackett <bhackett1024@gmail.com>",
+      "commit_message": "Bug 1495910 - Add telemetry for record/replay menu items, r=lsmyth,janerik."
+    },
+    "10": {
+      "sha": "ce6fcc65a415d3bee52757e3d5a97216ad27daa7",
+      "branch": "default",
+      "author_info": "Eric Rahm <erahm@mozilla.com>",
+      "commit_message": "Bug 1500176 - Annotate DMD perfherder results. r=bc\n\nThis will split out AWSY results with DMD enabled from standard results, thus\navoiding confusion due to a large discrepency in values due to DMD's overhead."
+    },
+    "11": {
+      "sha": "9dee0572954bb34ae5466372dc5add368a5dba4c",
+      "branch": "default",
+      "author_info": "Paolo Amadini <paolo.mozmail@amadzone.org>",
+      "commit_message": "Bug 1497535 - Add a Fluent localization file in English that is not exposed to localizers. r=Pike\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8865"
+    },
+    "12": {
+      "sha": "6e87ad3335ba0e7310e485d48254706cb8c21d47",
+      "branch": "default",
+      "author_info": "Victor Porof <vporof@mozilla.com>",
+      "commit_message": "Bug 1498740 - Remove toolbar-menubar-autohide binding. r=bgrins"
+    },
+    "13": {
+      "sha": "cb2f928fff562ff38b66f474ab8acd628535d985",
+      "branch": "default",
+      "author_info": "Andr\u00e9 Bargull <andre.bargull@gmail.com>",
+      "commit_message": "Bug 1475669 - Return proper result for wrapped reactions. r=jorendorff"
+    },
+    "14": {
+      "sha": "d0f1450799b56b9960ad6df2da432a5fd5849417",
+      "branch": "default",
+      "author_info": "Matthew Noorenberghe <mozilla@noorenberghe.ca>",
+      "commit_message": "Bug 1435871 - Open prefs from Payment Request in a tab. r=jaws\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8497"
+    },
+    "15": {
+      "sha": "a1db0baedde03d00e96ddd577b8d3672f115a726",
+      "branch": "default",
+      "author_info": "Matthew Noorenberghe <mozilla@noorenberghe.ca>",
+      "commit_message": "Bug 1435871 - Implement a basic tab-modal dialog container for Payment Request. r=jaws\n\nDifferential Revision: https://phabricator.services.mozilla.com/D7934"
+    },
+    "16": {
+      "sha": "24a03346eaf5e5306a1c4d983e30c5102629560c",
+      "branch": "default",
+      "author_info": "Matthew Noorenberghe <mozilla@noorenberghe.ca>",
+      "commit_message": "Bug 1435871 - Back out changeset 3f6664786e85 (Bug 1470584) since it's for a windowed dialog. r=jaws\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8272"
+    },
+    "17": {
+      "sha": "4a875561b1ae1ceb0c3e0dcbea14ee46abb9725d",
+      "branch": "default",
+      "author_info": "Botond Ballo <botond@mozilla.com>",
+      "commit_message": "Bug 1478304 - Add a mochitest. r=kats\n\nDepends on D9327\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9328"
+    },
+    "18": {
+      "sha": "ebf726d7d48ddc01f847a43baf3a606ce6ad2429",
+      "branch": "default",
+      "author_info": "Botond Ballo <botond@mozilla.com>",
+      "commit_message": "Bug 1478304 - Ensure Layer::GetFixedPositionScrollContainerId() returns NULL_SCROLL_ID for layers that are not fixed. r=kats\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9327"
+    },
+    "19": {
+      "sha": "e1daa7729f92b1b5597f7d41d76c823296f2939d",
+      "branch": "default",
+      "author_info": "Gurzau Raul <rgurzau@mozilla.com>",
+      "commit_message": "Backed out 2 changesets (bug 1499209) for Accessibility crashes  [@ mozilla::a11y::Accessible::Proxy() const] on a CLOSED TREE\n\nBacked out changeset c8d88737a20e (bug 1499209)\nBacked out changeset 6a22bf58801f (bug 1499209)"
+    }
   },
-  {
-    "sha": "582b268dcabc2be280867a4fcfc7de489b66e747",
-    "commit_info": "Bug 1495452 - Don't crash when there is no vibrate permission; r=me a=geckoview62\n\nCatch exceptions when we don't have the vibrate permission.",
-    "branch": "GECKOVIEW_62_RELBRANCH",
-    "user": "Jim Chen <nchen@mozilla.com>"
+  "Try": {
+    "0": {
+      "sha": "987aacaed7a2bb184133544c849a90166a171fb0",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Trunk as late Beta: Clear the EARLY_BETA_OR_EARLIER ifdef\ntry: -b do -p all -u all -t all --no-retry --include-nightly"
+    },
+    "1": {
+      "sha": "f0f732e562598154f70e39e012ef27af3d0b1902",
+      "branch": "default",
+      "author_info": "Brian Hackett <bhackett1024@gmail.com>",
+      "commit_message": "try: -b do -p macosx64 -u all -t none"
+    },
+    "2": {
+      "sha": "04e978aba99c03688d86234a30ec4e15e86f8cdb",
+      "branch": "default",
+      "author_info": "Brian Hackett <bhackett1024@gmail.com>",
+      "commit_message": "Bug 1499828 Part 6 - Avoid hiding test graphics under overlay, r=test_only."
+    },
+    "3": {
+      "sha": "7b93adc75b5dd8479b2ce2ec6b152fba6df97964",
+      "branch": "default",
+      "author_info": "Dorel Luca <dluca@mozilla.com>",
+      "commit_message": "Trunk as early Beta: Force SM builds, twiddle mozharness to get PGO builds, beta update channel, and beta mozconfigs try: -b do -p all -u all -t all --no-retry --include-nightly"
+    },
+    "4": {
+      "sha": "bd51d1d162ed52df156f0aa2a5a68dac6d0c00f9",
+      "branch": "default",
+      "author_info": "Cosmin Sabou <csabou@mozilla.com>",
+      "commit_message": "Base config changes for all Trunk uplift simulation builds."
+    },
+    "5": {
+      "sha": "b8d10a11cb7b3672025de3a6b1030feda95e24ff",
+      "branch": "default",
+      "author_info": "moz-wptsync-bot <wptsync@mozilla.com>",
+      "commit_message": "try: -b do -p win32,win64,linux64,linux -u web-platform-tests-e10s-1[linux64-stylo,Ubuntu,10.10,Windows 10],web-platform-tests-1[linux64-stylo,Ubuntu,10.10,Windows 10] -t none --artifact --rebuild 10 --try-test-paths web-platform-tests:testing/web-platform/tests/background-fetch/abort.https.window.js web-platform-tests:testing/web-platform/tests/background-fetch/fetch.https.window.js web-platform-tests:testing/web-platform/tests/background-fetch/get-ids.https.window.js web-platform-tests:testing/web-platform/tests/background-fetch/get.https.window.js"
+    },
+    "6": {
+      "sha": "8a70448121e92e8dfd70fbee7537874123d9c101",
+      "branch": "default",
+      "author_info": "Andrea Marchesini <amarchesini@mozilla.com>",
+      "commit_message": "Fuzzy query=linux64\n\nPushed via `mach try fuzzy`"
+    },
+    "7": {
+      "sha": "fe94138ab439933a3ec8f19f68aae7e09c5a22d5",
+      "branch": "default",
+      "author_info": "Andrea Marchesini <amarchesini@mozilla.com>",
+      "commit_message": "[mq]: csp2.patch"
+    },
+    "8": {
+      "sha": "7c47c967ad30846c3af0595d3d323ddef549a99c",
+      "branch": "default",
+      "author_info": "Mats Palmgren <mats@mozilla.com>",
+      "commit_message": "CLOSED TREE\n\n--rebuild 4\n--no-retry # Do not retrigger failed tests\n\n-u mochitests,reftest,crashtest\n\n-p linux,linux64,linux64-asan,linux64-st-an,linux64-valgrind,macosx64,win32,win64,android-api-15,android-x86\n\ntry: -b do -p all -u all -t none"
+    },
+    "9": {
+      "sha": "601c814d19344dd18007a4f56f186bf6c323d979",
+      "branch": "default",
+      "author_info": "Mats Palmgren <mats@mozilla.com>",
+      "commit_message": "imported patch 1499348-wbr"
+    },
+    "10": {
+      "sha": "7697354825d89f1941d6dfa3e935797f2c949471",
+      "branch": "default",
+      "author_info": "Mats Palmgren <mats@mozilla.com>",
+      "commit_message": "Bug 1500609 - Add a nsFlexContainerFrame method to remove cached data that depend on flex items' intrinsic isize (idempotent patch).  r=dholbert"
+    },
+    "11": {
+      "sha": "5a5f7f2e9f623ee84a21598b42f12287882b60fd",
+      "branch": "default",
+      "author_info": "Mats Palmgren <mats@mozilla.com>",
+      "commit_message": "Bug 1499230 - Make empty <select>s have zero content-box inline-size, like in other UAs.  r=emilio"
+    },
+    "12": {
+      "sha": "4a6787f4fa39b86d36c7d83266e70b1bdc0f8414",
+      "branch": "default",
+      "author_info": "Mats Palmgren <mats@mozilla.com>",
+      "commit_message": "Bug 1499578 - Make one line-height the intrinsic block-size for <select> comboboxes.  r=emilio\n\nAlso, remove the !important on 'line-height' on <select> since other\nUAs allows authors to change it."
+    },
+    "13": {
+      "sha": "ff70442b73b376bc5f135aab4390ac1b5b3a662c",
+      "branch": "default",
+      "author_info": "Sebastian Hengst <archaeopteryx@coole-files.de>",
+      "commit_message": "No bug - update code after eslint change from merge and remove files removed by 1451484 and restored during merge"
+    },
+    "14": {
+      "sha": "7141a7da10208223603df9d309e1d738dbf91892",
+      "branch": "default",
+      "author_info": "Jan de Mooij <jdemooij@mozilla.com>",
+      "commit_message": "Bug 1500064 - Use GCHashSet in property enumeration code. r=jonco\n\nThis changes Maybe<IdSet> to Rooted<IdSet>. I think the Maybe<>\nis not buying us much because HashTable's storage is now lazily\nallocated (bug 1481998). I didn't notice any regressions in\nmicro-benchmarks; this patch might be a small improvement actually.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9225"
+    },
+    "15": {
+      "sha": "a83370778faf43b69e9a3b3540d25ce8b51da6a8",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Merge mozilla-central to mozilla-inbound. a=merge"
+    },
+    "16": {
+      "sha": "8784cdbf16d36c6e10a969bfaf47725ecec3b080",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Merge mozilla-central to mozilla-inbound. a=merge"
+    },
+    "17": {
+      "sha": "b6174ebcb60c2e4f981215bc99fa37025c11a7a0",
+      "branch": "default",
+      "author_info": "Andrea Marchesini <amarchesini@mozilla.com>",
+      "commit_message": "Bug 1500448 - Avoid the parsing of the FeaturePolicy 'allow' attribute when not needed, r=ckerschb"
+    },
+    "18": {
+      "sha": "53958ec4b3c9c48ee650d2a6e470e44fa47fc8d0",
+      "branch": "default",
+      "author_info": "Sean Stangl <sstangl@mozilla.com>",
+      "commit_message": "Bug 1500616 - The ARM64 Ion exception should work on non-simulator builds. r=tcampbell"
+    },
+    "19": {
+      "sha": "011cfa1666cbede441dcb7bc5f9e4b00c41d5878",
+      "branch": "default",
+      "author_info": "Emilio Cobos \u00c1lvarez <emilio@crisal.io>",
+      "commit_message": "Bug 1487312 - Fix content insertion accessibility notifications in Shadow DOM. r=Jamie,surkov\n\nThe issue was specific to content insertion directly under a shadow root, the\nrest should work (see bug 1427825 for the fix for other similar occurrences).\n\nThe removal of the aContainer argument follows the same pattern as bug 1442207.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6431\n"
+    }
   },
-  {
-    "sha": "15f1fe51a2b650993d5ae1009fbd52ccd1888334",
-    "commit_info": "No bug - Tagging c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b with FIREFOX_62_0_3_BUILD1 a=release CLOSED TREE",
-    "branch": "default",
-    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+  "Autoland": {
+    "0": {
+      "sha": "380375ad1dbd2402b5d131dd5cc8bed9d78ba072",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Merge mozilla-central to autoland. a=merge"
+    },
+    "1": {
+      "sha": "fb6f3dea0beaa9e17e58f8967ccfcf604f4d95fb",
+      "branch": "default",
+      "author_info": "Andrew Swan <aswan@mozilla.com>",
+      "commit_message": "Bug 1498420 Convert talos tart extension to a webextension r=mconley a=Aryx\n\nThe biggest change here is that the tart.html page that drives the\ntest (not to be confused with the pages loaded in new tabs during the\ntest) moves from a chrome: page inside the extension to a regular http:\npage.  That also required revamping the communication between tart.html\nand the extension.  The rest of the changes are just the packaging and\nstartup mechanics for the test extension.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8807"
+    },
+    "2": {
+      "sha": "345543cd804524463207a7c674e82e21e7dcffba",
+      "branch": "default",
+      "author_info": "Sebastian Hengst <archaeopteryx@coole-files.de>",
+      "commit_message": "Bug 1486741 - Enable ESLint rule comma-dangle for all of mozilla-central: fix eslint failure after merge. a=eslint-fix"
+    },
+    "3": {
+      "sha": "5d4fb7fef7d0383e4244bdd221ec61018bff1662",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Merge mozilla-central to autoland. a=merge"
+    },
+    "4": {
+      "sha": "f88ebf2720c875520d2de1cf4104a3b550c73ad8",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Merge mozilla-inbound to mozilla-central. a=merge"
+    },
+    "5": {
+      "sha": "f3bb47ac5f014dd6d8cc0747e0f57f76858d04c2",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Backed out changeset 3133f6ab1bd8 (bug 1498420) for causing merge conflicts with bug 1486741"
+    },
+    "6": {
+      "sha": "4d6e6d7e58baedeb32896f24d569bad60672afbc",
+      "branch": "default",
+      "author_info": "Gabriel Luong <gabriel.luong@gmail.com>",
+      "commit_message": "Bug 1500469 - Don't require /shared/css/properties-db.js in the inspector client. r=mtigley"
+    },
+    "7": {
+      "sha": "3133f6ab1bd8ea2aa261f8e9024ab3fb8eb0ddcb",
+      "branch": "default",
+      "author_info": "Andrew Swan <aswan@mozilla.com>",
+      "commit_message": "Bug 1498420 Convert talos tart extension to a webextension r=mconley\n\nThe biggest change here is that the tart.html page that drives the\ntest (not to be confused with the pages loaded in new tabs during the\ntest) moves from a chrome: page inside the extension to a regular http:\npage.  That also required revamping the communication between tart.html\nand the extension.  The rest of the changes are just the packaging and\nstartup mechanics for the test extension.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8807"
+    },
+    "8": {
+      "sha": "3f193025450a04021ca5709deb7f1e94c7add510",
+      "branch": "default",
+      "author_info": "Natalia Csoregi <ncsoregi@mozilla.com>",
+      "commit_message": "Bug 1426568 - Fix Ahem issue and very frequent wbr-element unexpected passes. r=RyanVM"
+    },
+    "9": {
+      "sha": "1ca458791c2739f9c6bc7abe2b0672ed3518e9a3",
+      "branch": "default",
+      "author_info": "Jed Davis <jld@mozilla.com>",
+      "commit_message": "Bug 1498765 - Clean up ContentParent::KillHard handling.  r=mccr8\n\nMessageChannel shouldn't need to care about PContent-specific details."
+    },
+    "10": {
+      "sha": "a254c5207ba052f56527ea28d3dad50e0182cd33",
+      "branch": "default",
+      "author_info": "Florian Qu\u00e8ze <florian@queze.net>",
+      "commit_message": "Bug 1500482 - Use performance.svg as the about:performance favicon, r=felipe."
+    },
+    "11": {
+      "sha": "040f0e314fcf3251acc978a87a9597c8f25983d1",
+      "branch": "default",
+      "author_info": "Brian Hackett <bhackett1024@gmail.com>",
+      "commit_message": "Bug 1495910 - Add telemetry for record/replay menu items, r=lsmyth,janerik."
+    },
+    "12": {
+      "sha": "ce6fcc65a415d3bee52757e3d5a97216ad27daa7",
+      "branch": "default",
+      "author_info": "Eric Rahm <erahm@mozilla.com>",
+      "commit_message": "Bug 1500176 - Annotate DMD perfherder results. r=bc\n\nThis will split out AWSY results with DMD enabled from standard results, thus\navoiding confusion due to a large discrepency in values due to DMD's overhead."
+    },
+    "13": {
+      "sha": "9dee0572954bb34ae5466372dc5add368a5dba4c",
+      "branch": "default",
+      "author_info": "Paolo Amadini <paolo.mozmail@amadzone.org>",
+      "commit_message": "Bug 1497535 - Add a Fluent localization file in English that is not exposed to localizers. r=Pike\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8865"
+    },
+    "14": {
+      "sha": "6e87ad3335ba0e7310e485d48254706cb8c21d47",
+      "branch": "default",
+      "author_info": "Victor Porof <vporof@mozilla.com>",
+      "commit_message": "Bug 1498740 - Remove toolbar-menubar-autohide binding. r=bgrins"
+    },
+    "15": {
+      "sha": "cb2f928fff562ff38b66f474ab8acd628535d985",
+      "branch": "default",
+      "author_info": "Andr\u00e9 Bargull <andre.bargull@gmail.com>",
+      "commit_message": "Bug 1475669 - Return proper result for wrapped reactions. r=jorendorff"
+    },
+    "16": {
+      "sha": "a2df0d50925f188b41fdc60328b058b4afb53a41",
+      "branch": "default",
+      "author_info": "Marco Bonardo <mbonardo@mozilla.com>",
+      "commit_message": "Bug 1500053 - Fix missed optimization in autocomplete_match helpers. r=adw\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9316"
+    },
+    "17": {
+      "sha": "08ca28f32dcd7c69277a8f0d393f6f435860eae4",
+      "branch": "default",
+      "author_info": "Alex Chronopoulos <achronop@gmail.com>",
+      "commit_message": "Bug 1500468 - Return not supported error as a stop-gap solution for Linux enumerate devices. r=kinetik\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9264"
+    },
+    "18": {
+      "sha": "abbf8a8eed9da1931dbbcdf71810d21ccd3ef333",
+      "branch": "default",
+      "author_info": "Alex Chronopoulos <achronop@gmail.com>",
+      "commit_message": "Bug 1500377 - Update cubeb-pulse-rs to upstream commit 100b858. r=kinetik\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9242"
+    },
+    "19": {
+      "sha": "37df3d44e6882b69f9b8eda9ca67b5d322272fa7",
+      "branch": "default",
+      "author_info": "Alex Chronopoulos <achronop@gmail.com>",
+      "commit_message": "Bug 1500377 - Update cubeb to upstream commit a68892d. r=kinetik\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9241"
+    }
   },
-  {
-    "sha": "fd95782ea141b9a62723c7d195158f1558b8b2b6",
-    "commit_info": "No bug - Tagging c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b with FENNEC_62_0_3_BUILD1 a=release CLOSED TREE",
-    "branch": "default",
-    "user": "Mozilla Releng Treescript <release+treescript@mozilla.org>"
+  "Inbound": {
+    "0": {
+      "sha": "ff70442b73b376bc5f135aab4390ac1b5b3a662c",
+      "branch": "default",
+      "author_info": "Sebastian Hengst <archaeopteryx@coole-files.de>",
+      "commit_message": "No bug - update code after eslint change from merge and remove files removed by 1451484 and restored during merge"
+    },
+    "1": {
+      "sha": "7141a7da10208223603df9d309e1d738dbf91892",
+      "branch": "default",
+      "author_info": "Jan de Mooij <jdemooij@mozilla.com>",
+      "commit_message": "Bug 1500064 - Use GCHashSet in property enumeration code. r=jonco\n\nThis changes Maybe<IdSet> to Rooted<IdSet>. I think the Maybe<>\nis not buying us much because HashTable's storage is now lazily\nallocated (bug 1481998). I didn't notice any regressions in\nmicro-benchmarks; this patch might be a small improvement actually.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9225"
+    },
+    "2": {
+      "sha": "a83370778faf43b69e9a3b3540d25ce8b51da6a8",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Merge mozilla-central to mozilla-inbound. a=merge"
+    },
+    "3": {
+      "sha": "fb6f3dea0beaa9e17e58f8967ccfcf604f4d95fb",
+      "branch": "default",
+      "author_info": "Andrew Swan <aswan@mozilla.com>",
+      "commit_message": "Bug 1498420 Convert talos tart extension to a webextension r=mconley a=Aryx\n\nThe biggest change here is that the tart.html page that drives the\ntest (not to be confused with the pages loaded in new tabs during the\ntest) moves from a chrome: page inside the extension to a regular http:\npage.  That also required revamping the communication between tart.html\nand the extension.  The rest of the changes are just the packaging and\nstartup mechanics for the test extension.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8807"
+    },
+    "4": {
+      "sha": "345543cd804524463207a7c674e82e21e7dcffba",
+      "branch": "default",
+      "author_info": "Sebastian Hengst <archaeopteryx@coole-files.de>",
+      "commit_message": "Bug 1486741 - Enable ESLint rule comma-dangle for all of mozilla-central: fix eslint failure after merge. a=eslint-fix"
+    },
+    "5": {
+      "sha": "8784cdbf16d36c6e10a969bfaf47725ecec3b080",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Merge mozilla-central to mozilla-inbound. a=merge"
+    },
+    "6": {
+      "sha": "f88ebf2720c875520d2de1cf4104a3b550c73ad8",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Merge mozilla-inbound to mozilla-central. a=merge"
+    },
+    "7": {
+      "sha": "f3bb47ac5f014dd6d8cc0747e0f57f76858d04c2",
+      "branch": "default",
+      "author_info": "Daniel Varga <dvarga@mozilla.com>",
+      "commit_message": "Backed out changeset 3133f6ab1bd8 (bug 1498420) for causing merge conflicts with bug 1486741"
+    },
+    "8": {
+      "sha": "d0f1450799b56b9960ad6df2da432a5fd5849417",
+      "branch": "default",
+      "author_info": "Matthew Noorenberghe <mozilla@noorenberghe.ca>",
+      "commit_message": "Bug 1435871 - Open prefs from Payment Request in a tab. r=jaws\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8497"
+    },
+    "9": {
+      "sha": "a1db0baedde03d00e96ddd577b8d3672f115a726",
+      "branch": "default",
+      "author_info": "Matthew Noorenberghe <mozilla@noorenberghe.ca>",
+      "commit_message": "Bug 1435871 - Implement a basic tab-modal dialog container for Payment Request. r=jaws\n\nDifferential Revision: https://phabricator.services.mozilla.com/D7934"
+    },
+    "10": {
+      "sha": "24a03346eaf5e5306a1c4d983e30c5102629560c",
+      "branch": "default",
+      "author_info": "Matthew Noorenberghe <mozilla@noorenberghe.ca>",
+      "commit_message": "Bug 1435871 - Back out changeset 3f6664786e85 (Bug 1470584) since it's for a windowed dialog. r=jaws\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8272"
+    },
+    "11": {
+      "sha": "4a875561b1ae1ceb0c3e0dcbea14ee46abb9725d",
+      "branch": "default",
+      "author_info": "Botond Ballo <botond@mozilla.com>",
+      "commit_message": "Bug 1478304 - Add a mochitest. r=kats\n\nDepends on D9327\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9328"
+    },
+    "12": {
+      "sha": "ebf726d7d48ddc01f847a43baf3a606ce6ad2429",
+      "branch": "default",
+      "author_info": "Botond Ballo <botond@mozilla.com>",
+      "commit_message": "Bug 1478304 - Ensure Layer::GetFixedPositionScrollContainerId() returns NULL_SCROLL_ID for layers that are not fixed. r=kats\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9327"
+    },
+    "13": {
+      "sha": "e1daa7729f92b1b5597f7d41d76c823296f2939d",
+      "branch": "default",
+      "author_info": "Gurzau Raul <rgurzau@mozilla.com>",
+      "commit_message": "Backed out 2 changesets (bug 1499209) for Accessibility crashes  [@ mozilla::a11y::Accessible::Proxy() const] on a CLOSED TREE\n\nBacked out changeset c8d88737a20e (bug 1499209)\nBacked out changeset 6a22bf58801f (bug 1499209)"
+    },
+    "14": {
+      "sha": "22c6202bd0d80505778ded5365f709e573f831ff",
+      "branch": "default",
+      "author_info": "Wes Kocher <wkocher@mozilla.com>",
+      "commit_message": "Bug 1499893 - Mark a CSP test as failing on android r=jgraham\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9284"
+    },
+    "15": {
+      "sha": "b1e0d0e6c3997c22ba94ad2582de72eb2f07166f",
+      "branch": "default",
+      "author_info": "Gurzau Raul <rgurzau@mozilla.com>",
+      "commit_message": "Backed out changeset a92220bcf4fe (bug 1499893) for failing at /img-src/icon-blocked.sub.html"
+    },
+    "16": {
+      "sha": "c8d88737a20ef4975399bd8825f5519ac378d6c9",
+      "branch": "default",
+      "author_info": "Eitan Isaacson <eitan@monotonous.org>",
+      "commit_message": "Bug 1499209 - Send abbreviated source bundles with accessibility events. r=Jamie\n\nDepends on D8778\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8779"
+    },
+    "17": {
+      "sha": "6a22bf58801fe225e7477e089817d84df2e736ec",
+      "branch": "default",
+      "author_info": "Eitan Isaacson <eitan@monotonous.org>",
+      "commit_message": "Bug 1499209 - Refactor AccessibleWrap::ToBundle 1/2. r=Jamie\n\nThis refactor does a few things:\n1. Unifies the composition of the GeckoBundle, so that some tricky edge\ncases don't need to be implemented twice.\n2. Allows us to be more frugal with round trip sync ipc calls. Instead\nof retrieving everything from the start, only progressivley retrieve\nwhat we need.\n3. Sets the groundwork for the next patch that will return from this\nfunction earlier with a smaller bundle.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8778"
+    },
+    "18": {
+      "sha": "dc549720ed1f4da047add507439c3b17cc4b6d38",
+      "branch": "default",
+      "author_info": "Ed Lee <edilee@mozilla.com>",
+      "commit_message": "Bug 1500540 - Add end-of-year snippet, contextual-feature-recommender preference and bug fixes to Activity Stream r=k88hudson\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9297"
+    },
+    "19": {
+      "sha": "d94fc104be3b3cc4d0d9b08678648863932ca269",
+      "branch": "default",
+      "author_info": "Hiroyuki Ikezoe <hikezoe@mozilla.com>",
+      "commit_message": "Bug 1494422 - Test cases for viewport calculation. r=botond\n\nDepends on D8690\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8691"
+    }
   },
-  {
-    "sha": "c9ed11ae5c79df3dcb69075e1c9da0317d1ecb1b",
-    "commit_info": "Bug 1487255 - Update search blacklist. r=mikedeboer, a=jcristau",
-    "branch": "default",
-    "user": "Michael Kaply <mozilla@kaply.com>"
+  "comm-esr60": {
+    "0": {
+      "sha": "18a94aeb864e8c847d4cc096a4e2c301f021bb5e",
+      "branch": "default",
+      "author_info": "Jorg K <jorgk@jorgk.com>",
+      "commit_message": "Bug 1486913 - fix username/password handling in POP. r=mkmelin a=jorgk"
+    },
+    "1": {
+      "sha": "ffe25f93f1e9ab89de12cbfded77c11108f93003",
+      "branch": "default",
+      "author_info": "Jorg K <jorgk@jorgk.com>",
+      "commit_message": "Bug 1486913 - fix username/password handling in IMAP. r=mkmelin a=jorgk"
+    },
+    "2": {
+      "sha": "70d7b8ada4ecb939ac39848eb39b22e526d062e0",
+      "branch": "default",
+      "author_info": "Jorg K <jorgk@jorgk.com>",
+      "commit_message": "Bug 1000851 - Follow-up: Correct buffer size. r=mkmelin a=jorgk"
+    },
+    "3": {
+      "sha": "90e2c9058adcff296ebfafd71acd601232211087",
+      "branch": "default",
+      "author_info": "Magnus Melin <mkmelin+mozilla@iki.fi>",
+      "commit_message": "Bug 1000851 - Fix crash of Thunderbird when using a very long username/password. r+a=jorgk"
+    },
+    "4": {
+      "sha": "557bd7f20b05238747b65e4e17030517443d87ea",
+      "branch": "default",
+      "author_info": "Jorg K <jorgk@jorgk.com>",
+      "commit_message": "Bug 1487421 - Follow-up: Fix backport error. rs+a=bustage-fix DONTBUILD"
+    },
+    "5": {
+      "sha": "e524897f5bde19a61c4708a31629c54e09dbf6ca",
+      "branch": "default",
+      "author_info": "Jorg K <jorgk@jorgk.com>",
+      "commit_message": "Bug 1474878 - fix compile errors found by clang-cl in Windows-only code. r=aceman a=jorgk"
+    },
+    "6": {
+      "sha": "5e80e7ab2613de789aef34507e54ac0842108f40",
+      "branch": "default",
+      "author_info": "Jorg K <jorgk@jorgk.com>",
+      "commit_message": "Bug 1487421 - add MozMill test for display of message in base64 with white-space in between. r=aceman a=jorgk"
+    },
+    "7": {
+      "sha": "0b31df771530ea6a6a9cc52fad3aeece89f9a491",
+      "branch": "default",
+      "author_info": "Jorg K <jorgk@jorgk.com>",
+      "commit_message": "Bug 1487421 - add Xpcshell test for search of message in base64 with white-space in between. r+a=AlfredPeters"
+    },
+    "8": {
+      "sha": "db740f0083da6a05819f4da327f6820122807dae",
+      "branch": "default",
+      "author_info": "Alfred Peters <infofrommozilla@gmail.com>",
+      "commit_message": "Bug 1487421 - Don't clear leftovers when processing empty lines in Base64 encoded MIME-parts. r+a=jorgk"
+    },
+    "9": {
+      "sha": "24735ab7b938e75fbaace5f9b8f69759463093ff",
+      "branch": "default",
+      "author_info": "Arkadiusz Miskiewicz <arekm@maven.pl>",
+      "commit_message": "Bug 678322 - Follow-up: more tests including matching based on message string properties. r+a=jorgk\n\nnsMsgSearchTerm::MatchArbitraryHeader() can do matching using message string\nproperties and by matching headers line by line.\n\ntest_search.js was only testing second case for duplicated headers. Now we also test\nfirst case. Also added more tests for second case."
+    },
+    "10": {
+      "sha": "ee0feb312a94ecd6b7891c4e36121d29c93f8dc6",
+      "branch": "default",
+      "author_info": "Arkadiusz Miskiewicz <arekm@maven.pl>",
+      "commit_message": "Bug 678322 - Follow-up: fix logic error and cater for IMAP case where headers are not available. r+a=jorgk"
+    },
+    "11": {
+      "sha": "92edcb5bb7bc84c6fab41756f9d209b29cf448d3",
+      "branch": "default",
+      "author_info": "Arkadiusz Miskiewicz <arekm@maven.pl>",
+      "commit_message": "Bug 678322 - process all duplicate headers when searching. r+a=jorgk\n\nSearch in all headers even if header with the same name occured multiple times.\nStop treating Received in special way as now it's not needed - we will search\nall Received occurences (just like any other header) now.\n\nAdd tests for for the problem."
+    },
+    "12": {
+      "sha": "7d95030ebeef22876e2381ae70c5f71ca244a738",
+      "branch": "default",
+      "author_info": "Richard Marti <richard.marti@gmail.com>",
+      "commit_message": "Bug 1497033 - Fix alignment issues by removing the small-margin class in prefs/fonts- and tags dialog. r+a=jorgk"
+    },
+    "13": {
+      "sha": "9a2a24e3895cf84eb46702c14d89ca77e5812c8f",
+      "branch": "default",
+      "author_info": "Richard Marti <richard.marti@gmail.com>",
+      "commit_message": "Bug 1497697 - On content tabs, add correct background color (instead of transparent) to the findbar. r+a=jorgk"
+    },
+    "14": {
+      "sha": "86faf734312c45840a2e9064761f2daf3a1fd377",
+      "branch": "default",
+      "author_info": "Jorg K <jorgk@jorgk.com>",
+      "commit_message": "Bug 1498097 - never delete template when sending. r=aceman a=jorgk"
+    },
+    "15": {
+      "sha": "807198ad8091a0098ea846f62e408c6b7e867ae0",
+      "branch": "default",
+      "author_info": "Chris Gaudry <chris.m.gaudry@gmail.com>",
+      "commit_message": "Bug 1497154 - recipient certificate status should not be checked for signing usage since that only concerns the sender certificate. r=mkmelin a=jorgk"
+    },
+    "16": {
+      "sha": "01d10b64821078746e600ea322d3f48b23f735f5",
+      "branch": "default",
+      "author_info": "aceman <acelists@atlas.sk>",
+      "commit_message": "Bug 1482334 - fix add-on options menu by replacing .value with .getAttribute('value'). r+a=jorgk"
+    },
+    "17": {
+      "sha": "1615e21f1be9bf032b68401d62f2e43f6bf64972",
+      "branch": "default",
+      "author_info": "Neil Rashbrook <neil@parkwaycc.co.uk>",
+      "commit_message": "Bug 1493121 - Remove unnecessary use of `wrappedJSObject` in JsAccount's factory. r+a=jorgk"
+    },
+    "18": {
+      "sha": "9976c780c36673c9f2bd3f0781b0331e0265dc82",
+      "branch": "default",
+      "author_info": "Neil Rashbrook <neil@parkwaycc.co.uk>",
+      "commit_message": "Bug 110689 - remove CreateStartupUrl() since it's unneeded. r+a=jorgk"
+    },
+    "19": {
+      "sha": "dec101dffad0dcc8e51dab6f796385f4dc63acac",
+      "branch": "default",
+      "author_info": "Magnus Melin <mkmelin+mozilla@iki.fi>",
+      "commit_message": "Bug 1444389 - Fix crash in nsImapProtocol::HandleMessageDownLoadLine(). r+a=jorgk"
+    }
   },
-  {
-    "sha": "5f9fa0298fc3dbcb7e2ec9a2d86ef6a2e02b9917",
-    "commit_info": "Bug 1491186 - Don't sanity check scopes for kind=task. r=bhearsum, a=release\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6774",
-    "branch": "default",
-    "user": "Dustin J. Mitchell <dustin@mozilla.com>"
+  "Beta": {
+    "0": {
+      "sha": "6ac7d0f4537da21bb05bcaa5ad787e88e23866e2",
+      "branch": "default",
+      "author_info": "L10n Bumper Bot <release+l10nbumper@mozilla.com>",
+      "commit_message": "no bug - Bumping Firefox l10n changesets r=release a=l10n-bump DONTBUILD\n\nes-MX -> 9a0ddd95d7f5\neu -> cf4c49c04641\nro -> 29e95468ef09\nzh-CN -> d61940aa9842"
+    },
+    "1": {
+      "sha": "865c05d39687a7d957354d46280b8c91612ee041",
+      "branch": "default",
+      "author_info": "L10n Bumper Bot <release+l10nbumper@mozilla.com>",
+      "commit_message": "no bug - Bumping Fennec l10n changesets r=release a=l10n-bump DONTBUILD\n\nes-MX -> 4aaf44f1f8bc\neu -> cf4c49c04641\nro -> 29e95468ef09\nur -> 9d370cbb2349"
+    },
+    "2": {
+      "sha": "01378c910610cd214b2838650d0d2b7218fa8b5d",
+      "branch": "default",
+      "author_info": "Sebastian Hengst <archaeopteryx@coole-files.de>",
+      "commit_message": "merge mozilla-central to mozilla-beta. a=merge l10n=merge"
+    },
+    "3": {
+      "sha": "4888629028695c78b394cef273c00e70ae4b87df",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Backed out changeset 2c633215c514 (bug 1482055) for causing bug 1500505."
+    },
+    "4": {
+      "sha": "18859d2fec94f35e924e9093a99169623e0b2d78",
+      "branch": "default",
+      "author_info": "Narcis Beleuzu <nbeleuzu@mozilla.com>",
+      "commit_message": "Merge inbound to mozilla-central. a=merge"
+    },
+    "5": {
+      "sha": "f35ac5e55bb4ea3a74c53b964bec3627c984961b",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 (attempt 2) - Use template literals where suitable. r=erahm"
+    },
+    "6": {
+      "sha": "1752794d80abffc53fe6ffa689fcd1648195b6af",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 (attempt 2) - Put some parameters in `aFoo` form. erahm"
+    },
+    "7": {
+      "sha": "d8c9c172c24599b14ce744fd5b9f01f5916e5ae9",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 (attempt 2) - Use String.prototype.padStart(). r=erahm"
+    },
+    "8": {
+      "sha": "edee090da6bdce1e744b951145b0afa4ac4bd9d4",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 (attempt 2) - Use toLocaleString(). r=erahm"
+    },
+    "9": {
+      "sha": "838f16e6dcf2239d5b94dc5d5086f22558467dba",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 (attempt 2) - Change `var` to `let`. r=erahm"
+    },
+    "10": {
+      "sha": "51a3a633315cebea2c31fb871d6c35300b529313",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 (attempt 2) - Use for..of loops where possible. r=erahm"
+    },
+    "11": {
+      "sha": "d091653eec100d84b4c1e7fd78e05aa9257a5f08",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 (attempt 2) - Improve treeline handling. r=erahm."
+    },
+    "12": {
+      "sha": "2c53f4bdf597569fcc308a770d2adb6711b48723",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 (attempt 2) - Use non-ASCII chars directly in the code. r=erahm"
+    },
+    "13": {
+      "sha": "a5db777b44d0cd1ceb747fb3bdd8401bffd5a6f5",
+      "branch": "default",
+      "author_info": "Cosmin Sabou <csabou@mozilla.com>",
+      "commit_message": "Merge mozilla-central to mozilla-inbound. a=merge"
+    },
+    "14": {
+      "sha": "be3ea7eb7ff484be2e8e840a64f8d86c6fdd0d65",
+      "branch": "default",
+      "author_info": "Noemi Erli <nerli@mozilla.com>",
+      "commit_message": "Backed out 8 changesets (bug 1499906) for ES Lint failure in builds/worker/checkouts/gecko/toolkit/components/aboutmemory/content/aboutMemory.js\n\nBacked out changeset 81ed2232fb09 (bug 1499906)\nBacked out changeset a4e7eb7be03c (bug 1499906)\nBacked out changeset eeea7ba794c3 (bug 1499906)\nBacked out changeset 9819dbed2d88 (bug 1499906)\nBacked out changeset 97348d7aa09e (bug 1499906)\nBacked out changeset 075198910378 (bug 1499906)\nBacked out changeset 14cef5ef3dc4 (bug 1499906)\nBacked out changeset 9d2fa6237585 (bug 1499906)"
+    },
+    "15": {
+      "sha": "81ed2232fb09403667483fad07a9ac4dc1d6f2f4",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 - Use template literals where suitable. r=erahm"
+    },
+    "16": {
+      "sha": "a4e7eb7be03c2d1b51fd3b3ee355720d999fb2a9",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 - Put some parameters in `aFoo` form. erahm"
+    },
+    "17": {
+      "sha": "eeea7ba794c30def2083f1a7555228b84d7b4626",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 - Use String.prototype.padStart(). r=erahm\n\nThis lets us remove pad()."
+    },
+    "18": {
+      "sha": "9819dbed2d88c0aa7f4832a0cee383e68481ebd8",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 - Use toLocaleString(). r=erahm\n\nThis replaces a bunch of code that inserted separators by hand.\n\nFor now I've kept the output mostly the same by forcing the locale to en-US.\nBut at least now we could consider localizing the output.\n\nThe places where the output is different, it's more consistent with the new\ncode. E.g. printing \"-05.55%\" (which matches \"05.55%\") instead of \"-5.55%\"."
+    },
+    "19": {
+      "sha": "97348d7aa09eace30cab2b769754bfc334f750f7",
+      "branch": "default",
+      "author_info": "Nicholas Nethercote <nnethercote@mozilla.com>",
+      "commit_message": "Bug 1499906 - Change `var` to `let`. r=erahm\n\nFor consistency; `let` is used in most places."
+    }
   },
-  {
-    "sha": "dc99e844c2af61e5062fe327375c615f4b14bd4b",
-    "commit_info": "Bug 1491940 - [Mac] Allow Adobe DRM content to play with the Mac Flash sandbox. r=Alex_Gaynor, a=jcristau\n\nAdd an whitelisted write-access path regex to the Flash plugin sandbox.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6679",
-    "branch": "default",
-    "user": "Haik Aftandilian <haftandilian@mozilla.com>"
+  "mozilla-esr60": {
+    "0": {
+      "sha": "9fb8aee79ca611175ad4321eabeed1c78ef37152",
+      "branch": "default",
+      "author_info": "Mozilla Releng Treescript <release+treescript@mozilla.org>",
+      "commit_message": "No bug - Tagging ea9412b18ca812f8a480aa28d508298db5fdc531 with FIREFOX_60_3_0esr_BUILD1 a=release CLOSED TREE"
+    },
+    "1": {
+      "sha": "ea9412b18ca812f8a480aa28d508298db5fdc531",
+      "branch": "default",
+      "author_info": "Benjamin Bouvier <benj@benj.me>",
+      "commit_message": "Bug 1499198 - Use a constant memory load instead of a word reference in convertUint64ToDouble. r=luke, a=RyanVM"
+    },
+    "2": {
+      "sha": "09939be135d82a4edbbdb4e908ec209d7bc87308",
+      "branch": "default",
+      "author_info": "Jon Coppeard <jcoppeard@mozilla.com>",
+      "commit_message": "Bug 1481844 - Clear expando for objects with an ExpandoAndGeneration before wrapping. r=bz, a=RyanVM"
+    },
+    "3": {
+      "sha": "ac127e734ef35211e9a87fad4418b60f888b7775",
+      "branch": "default",
+      "author_info": "Geoff Brown <gbrown@mozilla.com>",
+      "commit_message": "Bug 1469288 - Increase test chunks for linux/debug wpt. r=jmaher, a=test-only"
+    },
+    "4": {
+      "sha": "366bd2c7c4f18bf5d8343a3d9ac98a5bd077b77f",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1499075 - Adjust the number of OSX wpt chunks for more consistent runtimes with other platforms. r=jmaher, a=test-only\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8730"
+    },
+    "5": {
+      "sha": "4a99c842c818a1fcd7153e67a1fb919a30654103",
+      "branch": "default",
+      "author_info": "David Parks <dparks@mozilla.com>",
+      "commit_message": "Bug 1495245 - Refactor AudioDeviceMessageRunnable's use of the PluginModuleSet. r=jmathies, a=RyanVM\n\nChanges AudioDeviceMessageRunnable to hold the AudioNotification instead of its PluginModuleSet to simplify object lifetime issues. AudioNotification is ref-counted so we can increment its ref-count during the asynchronous Runnable."
+    },
+    "6": {
+      "sha": "9461988ff462c85212381f2aedd9aac6bdb72131",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1498701 - Backport some upstream Skia patches. r=lsalzman, a=abillings\n\nBackport of:\nhttps://skia.googlesource.com/skia/+/c3d8a48f1b27370049aa512019cd726c59354743\nhttps://skia.googlesource.com/skia/+/8051d38358293df1e5b8a1a513f8114147ec9fa3"
+    },
+    "7": {
+      "sha": "023133ff02ec6ba3bd40af17240ad4ee2a99aa8a",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1498482 - Backport some upstream Skia patches. r=lsalzman, a=abillings\n\nBackport of:\nhttps://skia.googlesource.com/skia/+/1e259cda4fb7f12e98dd611bd651f40ebef2d14a\nhttps://skia.googlesource.com/skia/+/73be50da2a1fe8944f2623a511fda1957eed708a"
+    },
+    "8": {
+      "sha": "23b23e12c5487cb295183e00d9b39bd79e31b6ca",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1498460 - Backport an upstream Skia patch. r=lsalzman, a=abillings\n\nBackport of:\nhttps://skia.googlesource.com/skia/+/d5b4593024544c3405615066aa5b4f94352eb3cb"
+    },
+    "9": {
+      "sha": "bf7c36ef7352a3d017823c0aa9e791fbfb7a77b8",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "No bug - Bump OSX opt reftests to 2 chunks on ESR60. r=me, a=test-only\n\nCurrent run-time is 45-50min, so splitting to two seems reasonable to keep the runtime closer to 30min max."
+    },
+    "10": {
+      "sha": "ae00d9a971a7f7a66b6757581feb28d99557fb90",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1422296 - Skip the readable-streams web-platform-tests on ESR60. r=jorendorff, a=test-only"
+    },
+    "11": {
+      "sha": "9c85dbb0df672498208c8bc6b2f1581e0d3e1971",
+      "branch": "default",
+      "author_info": "D\u00e3o Gottwald <dao@mozilla.com>",
+      "commit_message": "Bug 1496322 - Update window border colors for Windows 10 1809 update. r=Gijs, a=RyanVM"
+    },
+    "12": {
+      "sha": "99eae0d150922228c77f976f17ad331aeede2946",
+      "branch": "default",
+      "author_info": "Jan Varga <jan.varga@gmail.com>",
+      "commit_message": "Bug 1492737 - Part 2: Avoid searching the prototype chain when extracting keys. r=asuth, a=RyanVM"
+    },
+    "13": {
+      "sha": "eeb9060379dc44bc3bd3534b6481a92bedf2c62e",
+      "branch": "default",
+      "author_info": "Jan Varga <jan.varga@gmail.com>",
+      "commit_message": "Bug 1492737 - Part 1: Support passing name length to JS_GetOwnUCPropertyDescriptor and add JS_GetUCPropertyDescriptor. r=Waldo, a=RyanVM"
+    },
+    "14": {
+      "sha": "1b9ba785f76e69c6bb937d725a516b8f668a57db",
+      "branch": "default",
+      "author_info": "Simon Fraser <sfraser@mozilla.com>",
+      "commit_message": "Bug 1492639 - fixes to bouncer check. r=sfraser a=release"
+    },
+    "15": {
+      "sha": "e5afa0b2230f34a2eee1bbab98ccc87db3463cab",
+      "branch": "default",
+      "author_info": "Simon Fraser <sfraser@mozilla.com>",
+      "commit_message": "Bug 1492639 Add destination checks to bouncer validation r=mtabara a=release\n\nReviewers: mtabara\n\nReviewed By: mtabara\n\nSubscribers: bhearsum, sfraser, catlee, mtabara\n\nTags: #secure-revision, #bmo-releng-security\n\nBug #: 1492639\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8189"
+    },
+    "16": {
+      "sha": "16b668c39d8469fb971de5cb6b50d4acf4857bd2",
+      "branch": "default",
+      "author_info": "Simon Fraser <sfraser@mozilla.com>",
+      "commit_message": "Bug 1493071 Rename bouncer_check cron task r=mtabara a=release\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6660"
+    },
+    "17": {
+      "sha": "0f7218ac2538af6ecf2ecdf2ca17a424600a9686",
+      "branch": "default",
+      "author_info": "Simon Fraser <sfraser@mozilla.com>",
+      "commit_message": "Bug 1469803 Update cron bouncer check to use product-details r=rail\n\nDifferential Revision: https://phabricator.services.mozilla.com/D1883"
+    },
+    "18": {
+      "sha": "5bb9d23f91c4da6df5e59be2195b0f5deaa0c342",
+      "branch": "default",
+      "author_info": "Simon Fraser <sfraser@mozilla.com>",
+      "commit_message": "Bug 1469803 Separate bouncer-check for cron tests r=mtabara\n\nWe shouldn't run this on central, as it falls back to the dev configs, and fails.\nIt should be fine on beta/release/esr60. I had to move this version of the check to its own\nkind to avoid the dependency tree bringing in the entire build process. Perhaps we can\nrefactor later to avoid duplication\n\nDifferential Revision: https://phabricator.services.mozilla.com/D1765"
+    },
+    "19": {
+      "sha": "25228484906d91f598f6deb8c2aa44ea29580e2a",
+      "branch": "default",
+      "author_info": "Aki Sasaki <asasaki@mozilla.com>",
+      "commit_message": "Update configs. IGNORE BROKEN CHANGESETS CLOSED TREE NO BUG a=release ba=release"
+    }
   },
-  {
-    "sha": "dc688e0c970278799f4d0ca9bde78545380e4110",
-    "commit_info": "Bug 1493903 - Don't inline push with more than 1 argument. r=tcampbell a=dveditz",
-    "branch": "default",
-    "user": "Jan de Mooij <jdemooij@mozilla.com>"
-  },
-  {
-    "sha": "d596c94e62cd99b7efa048cb8016368047aaa079",
-    "commit_info": "Bug 1493900.  r=bhackett,sunfish a=dveditz",
-    "branch": "default",
-    "user": "Jan de Mooij <jdemooij@mozilla.com>"
-  },
-  {
-    "sha": "d7a52857cd862b4e2f8305baddc119f4e9a47146",
-    "commit_info": "Bug 1489785: Remove a workaround for gcc, introduced in bug 678607, that is no longer needed and that causes hangs in modal dialogs on macOS 10.14. r=mstange, a=jcristau",
-    "branch": "default",
-    "user": "Stephen A Pohl <spohl.mozilla.bugs@gmail.com>"
-  },
-  {
-    "sha": "97c33560b0e28c6744ab83d63493fe41ad4ae8ff",
-    "commit_info": "Bug 1491094 - Don't require ACCESS_WIFI_STATE for GeckoView r=droeh a=me\n\nFennec will continue to require this. While we're here, also make 'touchscreen' feature optional.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D7125\n",
-    "branch": "GECKOVIEW_62_RELBRANCH",
-    "user": "James Willcox <snorp@snorp.net>"
-  },
-  {
-    "sha": "7f2d67c5d804f70414782f72d82ea7db15455d9a",
-    "commit_info": "Bug 1494739 - Remove GV vibrate permission; r=me a=geckoview62\n\nRmove the VIBRATE permission. GV actually doesn't support the vibration\nAPI at the moment, so the permission is unused anyways.",
-    "branch": "GECKOVIEW_62_RELBRANCH",
-    "user": "Jim Chen <nchen@mozilla.com>"
-  },
-  {
-    "sha": "691b21e74a5179f546649c5d0f8b52c82a390790",
-    "commit_info": "Bug 1486552 - geckoview: Add GeckoRuntimeSettings.setLocale method. r=snorp, a=ritu\n\nDifferential Revision: https://phabricator.services.mozilla.com/D4794",
-    "branch": "GECKOVIEW_62_RELBRANCH",
-    "user": "Matt Brubeck <mbrubeck@mozilla.com>"
-  },
-  {
-    "sha": "49b9303f687d8f41b80739bdb9657bda866a1ce6",
-    "commit_info": "Merge GECKOVIEW_62_RELBRANCH with default. a=merge",
-    "branch": "GECKOVIEW_62_RELBRANCH",
-    "user": "Ryan VanderMeulen <ryanvm@gmail.com>"
-  },
-  {
-    "sha": "aa7b44bb25aa6c67b91f5dd93fee2116f4c0e659",
-    "commit_info": "Bug 1491621 - use different priorities for different kinds of decisions r=tomprince a=tomprince\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6193",
-    "branch": "default",
-    "user": "Dustin J. Mitchell <dustin@mozilla.com>"
-  },
-  {
-    "sha": "908e8968c5c7fb731c9438f944fb9594e1f3ff86",
-    "commit_info": "Bug 1469610: [taskgraph] Use `action.taskGroupId` to set `ACTION_TASK_GROUP_ID`; r=dustin\n\nThis makes it consistent with everywhere else in `.taskcluster.yml` where we\nrefer to the action task group.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D1707",
-    "branch": "default",
-    "user": "Tom Prince <mozilla@hocat.ca>"
-  },
-  {
-    "sha": "22d8343c70a09ca8c4c8f592e01ec26269319b2d",
-    "commit_info": "Bug 1491186: sanity check action scopes r=aki,tomprince\n\nThis provides a modicum of assurance that, for example, a non-generic action is\nnot being run with generic scopes. While scopes would prevent any serious\ndamage from such an action, this provides an extra layer of security to prevent\nsuch abuse.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D6271",
-    "branch": "default",
-    "user": "Dustin J. Mitchell <dustin@mozilla.com>"
+  "mozilla-release": {
+    "0": {
+      "sha": "37797e83215058cfc727052bb65d8a4fb48442ec",
+      "branch": "default",
+      "author_info": "Mozilla Releng Treescript <release+treescript@mozilla.org>",
+      "commit_message": "No bug - Tagging 84219fbf133cacfc6e31c9471ad20ee7162a02af with FIREFOX_63_0_BUILD2 a=release CLOSED TREE DONTBUILD"
+    },
+    "1": {
+      "sha": "3c4d16c1bbfeea2929e45e4344fe0a4a0d6bb657",
+      "branch": "default",
+      "author_info": "Mozilla Releng Treescript <release+treescript@mozilla.org>",
+      "commit_message": "No bug - Tagging 84219fbf133cacfc6e31c9471ad20ee7162a02af with FENNEC_63_0_BUILD2 a=release CLOSED TREE DONTBUILD"
+    },
+    "2": {
+      "sha": "abafc901dbcc5b288134a89370e206bb30ef4bd7",
+      "branch": "default",
+      "author_info": "Mihai Tabara <mtabara@mozilla.com>",
+      "commit_message": "Bug 1499440 - disable mark-as-started. r=aki a=release"
+    },
+    "3": {
+      "sha": "84219fbf133cacfc6e31c9471ad20ee7162a02af",
+      "branch": "default",
+      "author_info": "alwu <alwu@mozilla.com>",
+      "commit_message": "Bug 1499803 - Collect media Telemetry Scalar in Release version. r=chutten, a=pascalc\n\nThe autoplay shield-study which will run on Release 63 needs one of these data and we also want to analysis other data in order to improve the user experience of blocking-autoplay.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D9014"
+    },
+    "4": {
+      "sha": "b9768ea75a5d9b723b24ad9d386ffeff8a52e361",
+      "branch": "default",
+      "author_info": "Matthew Noorenberghe <mozilla@noorenberghe.ca>",
+      "commit_message": "Bug 1496069 - Properly pass noValidate to EditAddress and set @novalidate. r=jaws a=pascalc\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8808"
+    },
+    "5": {
+      "sha": "70892c9d8aeab7bba0d5fb44b64e6448c5dfad7e",
+      "branch": "default",
+      "author_info": "Sebastian Hengst <archaeopteryx@coole-files.de>",
+      "commit_message": "Bug 1499603 - Clear host rules from clear_cascade_data: Run wpt-manifest-update. a=hopefully-wpt-fix"
+    },
+    "6": {
+      "sha": "e986b9e437b6859ca180861e5fa265081b2d12cc",
+      "branch": "default",
+      "author_info": "Sebastian Hengst <archaeopteryx@coole-files.de>",
+      "commit_message": "Backed out changeset c023e8e06880 (bug 1496069) for eslint and browser-chrome failures (after conflict applying it). a=backout"
+    },
+    "7": {
+      "sha": "8c489cac4a10cb54027647e64cfd08cff46bef37",
+      "branch": "default",
+      "author_info": "Ehsan Akhgari <ehsan@mozilla.com>",
+      "commit_message": "Bug 1499549 - Ensure that we only check the corresponding Content Blocking exception list when testing whether a top-level document is on the Content Blocking allow list; r=francois a=ritu\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8927"
+    },
+    "8": {
+      "sha": "c023e8e06880150f93210323deafb941b89952d1",
+      "branch": "default",
+      "author_info": "Matthew Noorenberghe <mozilla@noorenberghe.ca>",
+      "commit_message": "Bug 1496069 - Properly pass noValidate to EditAddress and set @novalidate. r=jaws a=pascalc\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8808"
+    },
+    "9": {
+      "sha": "f95041f37c6f7c6d51b6e59e7caddcb082a67b52",
+      "branch": "default",
+      "author_info": "Emilio Cobos \u00c1lvarez <emilio@crisal.io>",
+      "commit_message": "Bug 1499603 - Clear host rules from clear_cascade_data. r=heycam a=pascalc\n\nWhile at it, also measure them for about:memory.\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8972"
+    },
+    "10": {
+      "sha": "fa5f9823d1fe6fa9e164eb1423a5b8545e4d2d9e",
+      "branch": "default",
+      "author_info": "Sebastian Hengst <archaeopteryx@coole-files.de>",
+      "commit_message": "Backed out changeset 39d6cdbcbf64 (bug 1484524) on request from pascalc. a=backout"
+    },
+    "11": {
+      "sha": "ea3b45ed3e04155184f4b85da43dc2328424f2d2",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1498701 - Backport some upstream Skia patches. r=lsalzman, a=abillings\n\nBackport of:\nhttps://skia.googlesource.com/skia/+/c3d8a48f1b27370049aa512019cd726c59354743\nhttps://skia.googlesource.com/skia/+/8051d38358293df1e5b8a1a513f8114147ec9fa3"
+    },
+    "12": {
+      "sha": "3b7261093ce05cfe5a33c64063bd6bcb246a5d75",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1498482 - Backport some upstream Skia patches. r=lsalzman, a=abillings\n\nBackport of:\nhttps://skia.googlesource.com/skia/+/1e259cda4fb7f12e98dd611bd651f40ebef2d14a\nhttps://skia.googlesource.com/skia/+/73be50da2a1fe8944f2623a511fda1957eed708a"
+    },
+    "13": {
+      "sha": "30bb4357d4e3564df4ca16e6df96d26729c906a5",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1498460 - Backport an upstream Skia patch. r=lsalzman, a=abillings\n\nBackport of:\nhttps://skia.googlesource.com/skia/+/d5b4593024544c3405615066aa5b4f94352eb3cb"
+    },
+    "14": {
+      "sha": "24576af4191ccaaccd3dc44d4de2b5d334d7c7bd",
+      "branch": "default",
+      "author_info": "Mozilla Releng Treescript <release+treescript@mozilla.org>",
+      "commit_message": "No bug - Tagging 75787884e0a318f5f3314abf98f56e63a6025a21 with FENNEC_63_0_BUILD1 a=release CLOSED TREE DONTBUILD"
+    },
+    "15": {
+      "sha": "75787884e0a318f5f3314abf98f56e63a6025a21",
+      "branch": "default",
+      "author_info": "Karl Tomlinson <karlt+@karlt.net>",
+      "commit_message": "Bug 1497751 - Update driver state before handing control to another thread. r=achronop, a=pascalc\n\nDifferential Revision: https://phabricator.services.mozilla.com/D8180"
+    },
+    "16": {
+      "sha": "a8e9539928ac57d3f4604e4f47a12af4457b02ca",
+      "branch": "default",
+      "author_info": "yulia <ystartsev@mozilla.com>",
+      "commit_message": "Bug 1493131 - Use custom memoization for the inspector. r=ochameau, a=pascalc\n\nDifferential Revision: https://phabricator.services.mozilla.com/D7703"
+    },
+    "17": {
+      "sha": "3851146f815f799a50bc4a0bfb4ea8adbf665024",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1499217 - Bumping Fennec l10n changesets. r=release, a=l10n-bump"
+    },
+    "18": {
+      "sha": "ec06a13284f18e6b1841c0f58095a3535c50e99d",
+      "branch": "default",
+      "author_info": "Ryan VanderMeulen <ryanvm@gmail.com>",
+      "commit_message": "Bug 1499217 - Bumping Firefox l10n changesets. r=release, a=l10n-bump"
+    },
+    "19": {
+      "sha": "ea4b5c999c575532506dfe6c702f59c5a268983b",
+      "branch": "default",
+      "author_info": "Cosmin Sabou <csabou@mozilla.com>",
+      "commit_message": "Backed out changeset f0c6e521429c (bug 1259822) as requested by jorendorff. a=backout"
+    }
   }
-]
+}

@@ -1,7 +1,6 @@
 import requests
 import json
 
-
 reposApi = {'shipit': 'https://api.github.com/repos/mozilla-releng/ship-it/commits',
             'services': 'https://api.github.com/repos/mozilla/release-services/commits',
             'beetmoverscript': 'https://api.github.com/repos/mozilla-releng/beetmoverscript/commits',
@@ -23,27 +22,23 @@ reposApi = {'shipit': 'https://api.github.com/repos/mozilla-releng/ship-it/commi
             'funsize': 'https://api.github.com/repos/mozilla-releng/funsize/commits',
             'signtool': 'https://api.github.com/repos/mozilla-releng/signtool/commits'}
 
-for key, value in reposApi.items():
-    api_url = value                                                  # place api URL into a variable
-    json_data = requests.get(api_url).json()                         # get data from url and convert to json
-    new_list = []                                                    # main list that will contain data of all commits
+for key in reposApi:
+    url = requests.get(reposApi.get(key))  # place api URL into a variable
+    json_data = url.json()  # get data from url and convert to json
+    repo_dict = {}  # main dict that will contain all of the data of a repo
+    number = 0  # count the number of commits in each repo
     for item in json_data:
-        big_daddy = {}                                    # main dictionary. will contain all data about a single commit
-        commit_info = {}                                              # will contain info about committer
-        commit_info.update(item['commit']['author'])
-        # commit_msg = {}                                               # commit message
-        # commit_msg.update(item['commit']['message'])
-        big_daddy['sha'] = item['sha']
-        big_daddy['commit_info'] = commit_info
-        big_daddy['commit_message'] = item['commit']['message']
-        new_list.append(big_daddy)
-        with open('github_changelog.json', 'w') as file:      # write each commit data into a file as json
-            json.dump(new_list, file, indent=2)
-        file.close()
-
-# for i in range(len(json_data)):
-#     new_string = json.dumps(json_data, indent=2)
-# file.write('commit sha: ' + json_data[i]['sha'] + '\n')
-# file.write('Author Name: ' + json_data[i]['commit']['author']['name'] + '\n')
-# file.write('Commit Date: ' + json_data[i]['commit']['author']['date'] + '\n')
-# file.write('Email: ' + json_data[i]['commit']['author']['email'] + '\n' + '\n')
+        each_commit = {}  # main dictionary. will contain all data about a single commit
+        author_info = {}  # will contain info about committer
+        author_info.update({'repo': reposApi[key],
+                            'sha': item['sha'],
+                            'url': item['url'],
+                            'author_info': item['commit']['author'],
+                            'commit_message': item['commit']['message']})
+        each_commit.update({number: author_info})
+        number += 1
+        repo_dict.update(each_commit)
+    reposApi.update({key: repo_dict})
+with open('github_changelog.json', 'w') as file:  # write each commit data into a file as json
+    json.dump(reposApi, file, indent=2)
+file.close()
