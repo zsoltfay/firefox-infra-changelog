@@ -28,6 +28,7 @@ for key in reposApi:
     repo_dict = {}  # main dict that will contain all of the data of a repo
     number = 0  # count the number of commits in each repo
     for item in json_data:
+        print(item)
         each_commit = {}  # main dictionary. will contain all data about a single commit
         author_info = {}  # will contain info about committer
         author_info.update({'repo': reposApi[key],
