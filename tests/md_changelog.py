@@ -8,7 +8,7 @@ with open('github_changelog.json') as file2:  # get github commit data
 
 file = open('markdown_changelog.md', 'w')
 git_title = "# Git" + "\n"
-header_git = "repo | commit message | author | email| date" + "\n" + "--- | --- |--- | --- | ---" + "\n"
+header_git = "| repo | author | email| date |" + "\n" + "| --- | --- | --- | --- |" + "\n"
 file.write(git_title)
 file.write(header_git)
 
@@ -17,18 +17,20 @@ for key in github_data:
         name = github_data[key][item]['author_info']['name']
         email = github_data[key][item]['author_info']['email']
         date = github_data[key][item]['author_info']['date']
-        commit_msg = github_data[key][item]['commit_message']
-        row = key + "|" + commit_msg + "|" + name + "|" + email + "|" + date
+        # commit_msg = github_data[key][item]['commit_message']
+        row = "|" + key + "|" + name + "|" + email + "|" + date + "|" + "\n"
         file.write(row)
 
 
-# hg_title = "# HG" + "\n"
-# header_hg = "repo | commit message | author | branch | date" + "\n" + "--- | --- | --- | --- | ---" + "\n"
-# file.write(hg_title)
-# file.write(header_hg)
-# for key1 in hg_data:
-#     for item1 in hg_data[key1]:
-#         name = github_data[key][item]['author_info']['name']
-#         email = github_data[key][item]['author_info']['email']
-#         date = github_data[key][item]['author_info']['date']
-#         commit_msg = github_data[key][item]['commit_message']
+hg_title = "# HG" + "\n"
+header_hg = "| repo | author | branch | date |" + "\n" + "| --- | --- | --- | --- |" + "\n"
+file.write(hg_title)
+file.write(header_hg)
+for key1 in hg_data:
+    for item1 in hg_data[key1]:
+        name = hg_data[key1][item1]['author_info']
+        sha = hg_data[key1][item1]['sha']
+        branch = hg_data[key1][item1]['branch']
+        row1 = "|" + key1 + "|" + name + "|" + branch + "|" + sha + "|" + "\n"
+        file.write(row1)
+file.close()
